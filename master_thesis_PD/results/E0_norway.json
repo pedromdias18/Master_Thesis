@@ -1,0 +1,443 @@
+{
+  "experiment": "E0",
+  "experiment_name": "E0 — Baseline (all ON)",
+  "country": "Norway",
+  "config": {
+    "two_pass": true,
+    "use_sample_picker": true,
+    "rich_schema": true
+  },
+  "timestamp": "2026-04-20T16:05:46.293591",
+  "llm_calls": 2,
+  "num_rules": 18,
+  "rules": [
+    {
+      "canonical_field": "company_name.legal_name",
+      "json_path": "navn",
+      "extraction_type": "direct",
+      "reasoning": "The 'navn' field contains the official registered name of the company"
+    },
+    {
+      "canonical_field": "unique_identifier.registration_number",
+      "json_path": "organisasjonsnummer",
+      "extraction_type": "direct",
+      "reasoning": "The 'organisasjonsnummer' is the official Norwegian organization number used as the unique identifier"
+    },
+    {
+      "canonical_field": "company_type",
+      "json_path": "organisasjonsform.beskrivelse",
+      "extraction_type": "nested_field",
+      "reasoning": "The human-readable description of the legal form (e.g., 'Stiftelse', 'Aksjeselskap') is preferred over the code"
+    },
+    {
+      "canonical_field": "status",
+      "json_path": [
+        "konkurs",
+        "underAvvikling",
+        "underTvangsavviklingEllerTvangsopplosning"
+      ],
+      "extraction_type": "boolean_logic",
+      "logic": "konkurs=true->LIQ|underAvvikling=true->LIQ|underTvangsavviklingEllerTvangsopplosning=true->LIQ|else->ACT",
+      "reasoning": "Derive status from boolean flags: if konkurs, underAvvikling, or underTvangsavvikling are true, status is LIQ (liquidation), otherwise ACT (active)"
+    },
+    {
+      "canonical_field": "country.registration",
+      "json_path": "NO",
+      "extraction_type": "hardcode",
+      "reasoning": "All records are from the Norwegian registry, so registration country is always NO"
+    },
+    {
+      "canonical_field": "country.business_address",
+      "json_path": "forretningsadresse.landkode",
+      "extraction_type": "nested_field",
+      "reasoning": "The business address country code is in forretningsadresse.landkode"
+    },
+    {
+      "canonical_field": "country.postal_address",
+      "json_path": "postadresse.landkode",
+      "extraction_type": "nested_field",
+      "reasoning": "The postal address country code is in postadresse.landkode"
+    },
+    {
+      "canonical_field": "business_address.street",
+      "json_path": "forretningsadresse.adresse",
+      "extraction_type": "join_list",
+      "reasoning": "The forretningsadresse.adresse is an array of address lines that should be joined"
+    },
+    {
+      "canonical_field": "business_address.city",
+      "json_path": "forretningsadresse.poststed",
+      "extraction_type": "nested_field",
+      "reasoning": "The city/municipality for the business address is in forretningsadresse.poststed"
+    },
+    {
+      "canonical_field": "postal_address.street",
+      "json_path": "postadresse.adresse",
+      "extraction_type": "join_list",
+      "reasoning": "The postadresse.adresse is an array of address lines that should be joined"
+    },
+    {
+      "canonical_field": "postal_address.city",
+      "json_path": "postadresse.poststed",
+      "extraction_type": "nested_field",
+      "reasoning": "The city/municipality for the postal address is in postadresse.poststed"
+    },
+    {
+      "canonical_field": "num_employees",
+      "json_path": "antallAnsatte",
+      "extraction_type": "direct",
+      "reasoning": "The 'antallAnsatte' field contains the number of employees"
+    },
+    {
+      "canonical_field": "share_capital.amount",
+      "json_path": "kapital.belop",
+      "extraction_type": "nested_field",
+      "reasoning": "The share capital amount is in kapital.belop (includes both Aksjekapital and Grunnkapital types)"
+    },
+    {
+      "canonical_field": "share_capital.currency",
+      "json_path": "kapital.valuta",
+      "extraction_type": "nested_field",
+      "reasoning": "The currency code for share capital is in kapital.valuta"
+    },
+    {
+      "canonical_field": "share_capital.fully_paid",
+      "json_path": "kapital.fulltInnbetalt",
+      "extraction_type": "nested_field",
+      "reasoning": "The fulltInnbetalt boolean indicates whether capital is fully paid up"
+    },
+    {
+      "canonical_field": "registration_date",
+      "json_path": [
+        "stiftelsesdato",
+        "registreringsdatoEnhetsregisteret"
+      ],
+      "extraction_type": "fallback_chain",
+      "reasoning": "Use stiftelsesdato (foundation date) as primary registration date, fall back to registreringsdatoEnhetsregisteret if not available"
+    },
+    {
+      "canonical_field": "description",
+      "json_path": "aktivitet",
+      "extraction_type": "join_list",
+      "reasoning": "The 'aktivitet' array contains text descriptions of the company's activities that should be joined"
+    },
+    {
+      "canonical_field": "unique_identifier.prior_registration_number",
+      "json_path": "registreringsnummerIHjemlandet",
+      "extraction_type": "direct",
+      "reasoning": "For foreign entities (UTLA), 'registreringsnummerIHjemlandet' contains the registration number from their home country (e.g., '5562564129' for the Swedish entity). This serves as a prior/alternative registration number to the Norwegian organisasjonsnummer."
+    }
+  ],
+  "metrics": {
+    "total_required": 17,
+    "total_expected": 23,
+    "field_coverage": 100.0,
+    "path_accuracy": 94.1,
+    "full_accuracy": 94.1,
+    "optional_skips": 5,
+    "missing_fields": [],
+    "extra_fields": []
+  },
+  "details": [
+    {
+      "canonical_field": "company_name.legal_name",
+      "expected_path": "navn",
+      "expected_type": "direct",
+      "optional": false,
+      "llm_path": "navn",
+      "llm_type": "direct",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "company_name.trade_name",
+      "expected_path": null,
+      "expected_type": null,
+      "optional": true,
+      "status": "OPTIONAL_SKIP",
+      "path_correct": null,
+      "type_correct": null
+    },
+    {
+      "canonical_field": "company_name.short_name",
+      "expected_path": null,
+      "expected_type": null,
+      "optional": true,
+      "status": "OPTIONAL_SKIP",
+      "path_correct": null,
+      "type_correct": null
+    },
+    {
+      "canonical_field": "company_name.local_language_name",
+      "expected_path": null,
+      "expected_type": null,
+      "optional": true,
+      "status": "OPTIONAL_SKIP",
+      "path_correct": null,
+      "type_correct": null
+    },
+    {
+      "canonical_field": "unique_identifier.registration_number",
+      "expected_path": "organisasjonsnummer",
+      "expected_type": "direct",
+      "optional": false,
+      "llm_path": "organisasjonsnummer",
+      "llm_type": "direct",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "unique_identifier.prior_registration_number",
+      "expected_path": null,
+      "expected_type": null,
+      "optional": true,
+      "llm_path": "registreringsnummerIHjemlandet",
+      "llm_type": "direct",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "parent_company.registration_number",
+      "expected_path": null,
+      "expected_type": null,
+      "optional": true,
+      "status": "OPTIONAL_SKIP",
+      "path_correct": null,
+      "type_correct": null
+    },
+    {
+      "canonical_field": "parent_company.company_name",
+      "expected_path": null,
+      "expected_type": null,
+      "optional": true,
+      "status": "OPTIONAL_SKIP",
+      "path_correct": null,
+      "type_correct": null
+    },
+    {
+      "canonical_field": "company_type",
+      "expected_path": [
+        "organisasjonsform.kode",
+        "organisasjonsform.beskrivelse"
+      ],
+      "expected_type": [
+        "nested_field",
+        "direct"
+      ],
+      "optional": false,
+      "llm_path": "organisasjonsform.beskrivelse",
+      "llm_type": "nested_field",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "status",
+      "expected_path": "konkurs|underAvvikling|underTvangsavviklingEllerTvangsopplosning",
+      "expected_type": "boolean_logic",
+      "optional": false,
+      "llm_path": [
+        "konkurs",
+        "underAvvikling",
+        "underTvangsavviklingEllerTvangsopplosning"
+      ],
+      "llm_type": "boolean_logic",
+      "path_correct": true,
+      "refs_found": "3/3",
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "country.registration",
+      "expected_path": "NO",
+      "expected_type": "hardcode",
+      "optional": false,
+      "llm_path": "NO",
+      "llm_type": "hardcode",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "country.business_address",
+      "expected_path": "forretningsadresse.landkode",
+      "expected_type": [
+        "nested_field",
+        "direct"
+      ],
+      "optional": false,
+      "llm_path": "forretningsadresse.landkode",
+      "llm_type": "nested_field",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "country.postal_address",
+      "expected_path": "postadresse.landkode",
+      "expected_type": [
+        "nested_field",
+        "direct"
+      ],
+      "optional": false,
+      "llm_path": "postadresse.landkode",
+      "llm_type": "nested_field",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "business_address.street",
+      "expected_path": "forretningsadresse.adresse",
+      "expected_type": [
+        "join_list",
+        "direct",
+        "nested_field"
+      ],
+      "optional": false,
+      "llm_path": "forretningsadresse.adresse",
+      "llm_type": "join_list",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "business_address.city",
+      "expected_path": "forretningsadresse.poststed",
+      "expected_type": [
+        "direct",
+        "nested_field"
+      ],
+      "optional": false,
+      "llm_path": "forretningsadresse.poststed",
+      "llm_type": "nested_field",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "postal_address.street",
+      "expected_path": "postadresse.adresse",
+      "expected_type": [
+        "join_list",
+        "direct",
+        "nested_field"
+      ],
+      "optional": false,
+      "llm_path": "postadresse.adresse",
+      "llm_type": "join_list",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "postal_address.city",
+      "expected_path": "postadresse.poststed",
+      "expected_type": [
+        "direct",
+        "nested_field"
+      ],
+      "optional": false,
+      "llm_path": "postadresse.poststed",
+      "llm_type": "nested_field",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "num_employees",
+      "expected_path": "antallAnsatte",
+      "expected_type": "direct",
+      "optional": false,
+      "llm_path": "antallAnsatte",
+      "llm_type": "direct",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "share_capital.amount",
+      "expected_path": "kapital.belop",
+      "expected_type": [
+        "nested_field",
+        "direct"
+      ],
+      "optional": false,
+      "llm_path": "kapital.belop",
+      "llm_type": "nested_field",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "share_capital.currency",
+      "expected_path": "kapital.valuta",
+      "expected_type": [
+        "nested_field",
+        "direct"
+      ],
+      "optional": false,
+      "llm_path": "kapital.valuta",
+      "llm_type": "nested_field",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "share_capital.fully_paid",
+      "expected_path": "kapital.fulltInnbetalt",
+      "expected_type": [
+        "nested_field",
+        "direct"
+      ],
+      "optional": false,
+      "llm_path": "kapital.fulltInnbetalt",
+      "llm_type": "nested_field",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "registration_date",
+      "expected_path": [
+        "registreringsdatoEnhetsregisteret",
+        "registreringsdatoForetaksregisteret",
+        "stiftelsesdato"
+      ],
+      "expected_type": [
+        "direct",
+        "fallback_chain"
+      ],
+      "optional": false,
+      "llm_path": [
+        "stiftelsesdato",
+        "registreringsdatoEnhetsregisteret"
+      ],
+      "llm_type": "fallback_chain",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "description",
+      "expected_path": [
+        "vedtektsfestetFormaal",
+        "aktivitet"
+      ],
+      "expected_type": [
+        "fallback_chain",
+        "join_list"
+      ],
+      "optional": false,
+      "llm_path": "aktivitet",
+      "llm_type": "join_list",
+      "path_correct": false,
+      "refs_found": "1/2",
+      "type_correct": true,
+      "status": "TYPE_OK"
+    }
+  ]
+}

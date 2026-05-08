@@ -1,0 +1,244 @@
+{
+  "E0": {
+    "Myanmar": {
+      "metrics": {
+        "total_required": 13,
+        "total_expected": 23,
+        "field_coverage": 100.0,
+        "path_accuracy": 100.0,
+        "full_accuracy": 100.0,
+        "optional_skips": 3,
+        "missing_fields": [],
+        "extra_fields": []
+      },
+      "num_rules": 20,
+      "llm_calls": 2,
+      "config": {
+        "two_pass": true,
+        "use_sample_picker": true,
+        "rich_schema": true
+      }
+    },
+    "Norway": {
+      "metrics": {
+        "total_required": 17,
+        "total_expected": 23,
+        "field_coverage": 100.0,
+        "path_accuracy": 94.1,
+        "full_accuracy": 94.1,
+        "optional_skips": 5,
+        "missing_fields": [],
+        "extra_fields": []
+      },
+      "num_rules": 18,
+      "llm_calls": 2,
+      "config": {
+        "two_pass": true,
+        "use_sample_picker": true,
+        "rich_schema": true
+      }
+    },
+    "Honduras": {
+      "metrics": {
+        "total_required": 14,
+        "total_expected": 23,
+        "field_coverage": 100.0,
+        "path_accuracy": 100.0,
+        "full_accuracy": 100.0,
+        "optional_skips": 6,
+        "missing_fields": [],
+        "extra_fields": []
+      },
+      "num_rules": 17,
+      "llm_calls": 2,
+      "config": {
+        "two_pass": true,
+        "use_sample_picker": true,
+        "rich_schema": true
+      }
+    }
+  },
+  "E1": {
+    "Myanmar": {
+      "metrics": {
+        "total_required": 13,
+        "total_expected": 23,
+        "field_coverage": 100.0,
+        "path_accuracy": 100.0,
+        "full_accuracy": 100.0,
+        "optional_skips": 6,
+        "missing_fields": [],
+        "extra_fields": []
+      },
+      "num_rules": 17,
+      "llm_calls": 1,
+      "config": {
+        "two_pass": false,
+        "use_sample_picker": true,
+        "rich_schema": true
+      }
+    },
+    "Norway": {
+      "metrics": {
+        "total_required": 17,
+        "total_expected": 23,
+        "field_coverage": 100.0,
+        "path_accuracy": 94.1,
+        "full_accuracy": 94.1,
+        "optional_skips": 6,
+        "missing_fields": [],
+        "extra_fields": []
+      },
+      "num_rules": 17,
+      "llm_calls": 1,
+      "config": {
+        "two_pass": false,
+        "use_sample_picker": true,
+        "rich_schema": true
+      }
+    },
+    "Honduras": {
+      "metrics": {
+        "total_required": 14,
+        "total_expected": 23,
+        "field_coverage": 92.9,
+        "path_accuracy": 92.9,
+        "full_accuracy": 92.9,
+        "optional_skips": 8,
+        "missing_fields": [
+          "country.business_address"
+        ],
+        "extra_fields": []
+      },
+      "num_rules": 14,
+      "llm_calls": 1,
+      "config": {
+        "two_pass": false,
+        "use_sample_picker": true,
+        "rich_schema": true
+      }
+    }
+  },
+  "E2": {
+    "Myanmar": {
+      "metrics": {
+        "total_required": 13,
+        "total_expected": 23,
+        "field_coverage": 100.0,
+        "path_accuracy": 100.0,
+        "full_accuracy": 100.0,
+        "optional_skips": 7,
+        "missing_fields": [],
+        "extra_fields": []
+      },
+      "num_rules": 16,
+      "llm_calls": 2,
+      "config": {
+        "two_pass": true,
+        "use_sample_picker": false,
+        "rich_schema": true
+      }
+    },
+    "Norway": {
+      "metrics": {
+        "total_required": 17,
+        "total_expected": 23,
+        "field_coverage": 94.1,
+        "path_accuracy": 88.2,
+        "full_accuracy": 88.2,
+        "optional_skips": 6,
+        "missing_fields": [
+          "share_capital.fully_paid"
+        ],
+        "extra_fields": []
+      },
+      "num_rules": 16,
+      "llm_calls": 2,
+      "config": {
+        "two_pass": true,
+        "use_sample_picker": false,
+        "rich_schema": true
+      }
+    },
+    "Honduras": {
+      "metrics": {
+        "total_required": 14,
+        "total_expected": 23,
+        "field_coverage": 92.9,
+        "path_accuracy": 92.9,
+        "full_accuracy": 92.9,
+        "optional_skips": 8,
+        "missing_fields": [
+          "country.business_address"
+        ],
+        "extra_fields": []
+      },
+      "num_rules": 14,
+      "llm_calls": 2,
+      "config": {
+        "two_pass": true,
+        "use_sample_picker": false,
+        "rich_schema": true
+      }
+    }
+  },
+  "E3": {
+    "Myanmar": {
+      "metrics": {
+        "total_required": 13,
+        "total_expected": 23,
+        "field_coverage": 100.0,
+        "path_accuracy": 100.0,
+        "full_accuracy": 100.0,
+        "optional_skips": 3,
+        "missing_fields": [],
+        "extra_fields": []
+      },
+      "num_rules": 20,
+      "llm_calls": 2,
+      "config": {
+        "two_pass": true,
+        "use_sample_picker": true,
+        "rich_schema": false
+      }
+    },
+    "Norway": {
+      "metrics": {
+        "total_required": 17,
+        "total_expected": 23,
+        "field_coverage": 100.0,
+        "path_accuracy": 94.1,
+        "full_accuracy": 82.4,
+        "optional_skips": 5,
+        "missing_fields": [],
+        "extra_fields": []
+      },
+      "num_rules": 18,
+      "llm_calls": 2,
+      "config": {
+        "two_pass": true,
+        "use_sample_picker": true,
+        "rich_schema": false
+      }
+    },
+    "Honduras": {
+      "metrics": {
+        "total_required": 14,
+        "total_expected": 23,
+        "field_coverage": 100.0,
+        "path_accuracy": 100.0,
+        "full_accuracy": 100.0,
+        "optional_skips": 7,
+        "missing_fields": [],
+        "extra_fields": []
+      },
+      "num_rules": 16,
+      "llm_calls": 2,
+      "config": {
+        "two_pass": true,
+        "use_sample_picker": true,
+        "rich_schema": false
+      }
+    }
+  }
+}

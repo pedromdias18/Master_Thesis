@@ -1,0 +1,95 @@
+[
+  {
+    "country": "Myanmar",
+    "changes": {
+      "registration_date": "50,000 values reformatted",
+      "share_capital.amount": "12,756 zero values cleared",
+      "status": {
+        "Registered": "ACT",
+        "Not Yet Re-Registered": "INA",
+        "Struck-Off": "CEA",
+        "Suspended": "INA",
+        "Liquidated": "CEA",
+        "In Liquidation": "LIQ",
+        "Deregistered": "CEA"
+      },
+      "company_type": {
+        "Private Company Limited by Shares": "PVT",
+        "Entity Registered Under Myanmar Companies Act 1914": "LTD",
+        "Overseas Corporation": "FCO",
+        "Public Company Limited by Shares": "PLC",
+        "Company Limited by Guarantee (Association)": "LTG",
+        "Private Company Limited by Guarantee": "LTG",
+        "Private Company Limited by Shares under the Special Company Act 1950": "PVT",
+        "Public Company Limited by Shares under the Special Company Act 1950": "PLC"
+      }
+    }
+  },
+  {
+    "country": "Norway",
+    "changes": {
+      "registration_date": "0 values reformatted",
+      "share_capital.amount": "1 zero values cleared",
+      "status": {
+        "Active": "ACT",
+        "Under liquidation": "LIQ",
+        "Bankrupt": "BAN",
+        "Forced dissolution": "DSL"
+      },
+      "company_type": {
+        "Aksjeselskap": "PVT",
+        "Forening/lag/innretning": "ASS",
+        "Samvirkeforetak": "COO",
+        "Stiftelse": "FOU",
+        "Interkommunalt selskap": "GOD",
+        "Ansvarlig selskap med delt ansvar": "LLP",
+        "Allmennaksjeselskap": "PLC",
+        "Kommunalt foretak": "GOD",
+        "Ansvarlig selskap med solidarisk ansvar": "ULT",
+        "Borettslag": "COO",
+        "Enkeltpersonforetak": "PPS",
+        "Annet foretak iflg. særskilt lov": "LTD",
+        "Pensjonskasse": "FOU",
+        "Sparebank": "COO",
+        "Norskregistrert utenlandsk foretak": "FCO",
+        "Kommandittselskap": "LLP",
+        "Gjensidig forsikringsselskap": "COO",
+        "Statsforetak": "GOD",
+        "Organisasjonsledd": "ASS",
+        "Utenlandsk enhet": "FCO",
+        "Selskap med begrenset ansvar": "LLC",
+        "Tingsrettslig sameie": "SPS",
+        "Fylkeskommunalt foretak": "GOD",
+        "Europeisk selskap": "PLC",
+        "Annen juridisk person": "NPO",
+        "Boligbyggelag": "COO",
+        "Eierseksjonssameie": "SPS",
+        "Partrederi": "SPS"
+      }
+    }
+  },
+  {
+    "country": "Honduras",
+    "changes": {
+      "registration_date": "50,000 values reformatted",
+      "share_capital.amount": "3 zero values cleared",
+      "status": {
+        "ACTIVO": "ACT",
+        "EN FORMACION": "FOR",
+        "EN TRASLADO": "INA",
+        "CERRADO": "CEA",
+        "LIQUIDADA": "CEA"
+      },
+      "company_type": {
+        "SOCIEDAD DE RESPONSABILIDAD LIMITADA SRL": "LLC",
+        "SOCIEDAD ANONIMA": "PLC",
+        "COMERCIANTE INDIVIDUAL": "PPS",
+        "INCORPORACION DE SOCIEDAD EXTRANJERA": "FCO",
+        "SOCIEDAD DE COMANDITA SIMPLE": "LLP",
+        "SOCIEDAD EN NOMBRE COLECTIVO": "ULT",
+        "SOCIEDAD DE COMANDITA COMPUESTA": "LPS",
+        "COMANDITA POR ACCIONES": "LPS"
+      }
+    }
+  }
+]

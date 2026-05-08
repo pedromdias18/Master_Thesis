@@ -1,0 +1,881 @@
+[
+  {
+    "country": "Myanmar",
+    "total_expected": 23,
+    "total_required": 13,
+    "total_llm": 16,
+    "field_matches": 16,
+    "path_matches": 14,
+    "type_matches": 15,
+    "full_matches": 13,
+    "optional_missing": 7,
+    "missing_fields": [],
+    "extra_fields": [],
+    "details": [
+      {
+        "canonical_field": "company_name.legal_name",
+        "expected_path": "Corp.CompanyName",
+        "expected_type": "direct",
+        "optional": false,
+        "llm_path": "Corp.CompanyName",
+        "llm_type": "direct",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "company_name.local_language_name",
+        "expected_path": "Corp.AltName",
+        "expected_type": "direct",
+        "optional": false,
+        "llm_path": "Corp.AltName",
+        "llm_type": "direct",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "company_name.trade_name",
+        "expected_path": null,
+        "expected_type": null,
+        "optional": true,
+        "status": "OPTIONAL_SKIP",
+        "path_correct": null,
+        "type_correct": null
+      },
+      {
+        "canonical_field": "company_name.short_name",
+        "expected_path": null,
+        "expected_type": null,
+        "optional": true,
+        "status": "OPTIONAL_SKIP",
+        "path_correct": null,
+        "type_correct": null
+      },
+      {
+        "canonical_field": "unique_identifier.registration_number",
+        "expected_path": "Corp.RegistrationNumber",
+        "expected_type": "direct",
+        "optional": false,
+        "llm_path": "Corp.RegistrationNumber",
+        "llm_type": "direct",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "unique_identifier.prior_registration_number",
+        "expected_path": "Corp.PriorRegistrationNumber",
+        "expected_type": "direct",
+        "optional": false,
+        "llm_path": "Corp.PriorRegistrationNumber",
+        "llm_type": "direct",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "parent_company.registration_number",
+        "expected_path": "Corp.HoldingCompanyRegNumber",
+        "expected_type": "direct",
+        "optional": false,
+        "llm_path": "Corp.HoldingCompanyRegNumber",
+        "llm_type": "direct",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "parent_company.company_name",
+        "expected_path": "Corp.HoldingCompanyName",
+        "expected_type": "direct",
+        "optional": false,
+        "llm_path": "Corp.HoldingCompanyName",
+        "llm_type": "direct",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "company_type",
+        "expected_path": "Corp.CompanyType",
+        "expected_type": "direct",
+        "optional": false,
+        "llm_path": "Corp.CompanyType",
+        "llm_type": "direct",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "status",
+        "expected_path": "Corp.Status",
+        "expected_type": "direct",
+        "optional": false,
+        "llm_path": "Corp.Status",
+        "llm_type": "direct",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "country.registration",
+        "expected_path": "MM",
+        "expected_type": "hardcode",
+        "optional": false,
+        "llm_path": "MM",
+        "llm_type": "hardcode",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "country.business_address",
+        "expected_path": "Corp.HoldingCompanyJurisdiction",
+        "expected_type": [
+          "direct",
+          "hardcode"
+        ],
+        "optional": true,
+        "llm_path": "Corp.RegisteredOfficeAddress.Country",
+        "llm_type": "direct",
+        "path_correct": false,
+        "type_correct": true,
+        "status": "TYPE_OK"
+      },
+      {
+        "canonical_field": "country.postal_address",
+        "expected_path": "Corp.PostalAddress",
+        "expected_type": "direct",
+        "optional": true,
+        "status": "OPTIONAL_SKIP",
+        "path_correct": null,
+        "type_correct": null
+      },
+      {
+        "canonical_field": "business_address.street",
+        "expected_path": "Corp.RegisteredOfficeAddress",
+        "expected_type": [
+          "direct",
+          "fallback_chain"
+        ],
+        "optional": true,
+        "llm_path": [
+          "Corp.RegisteredOfficeAddress.Street1",
+          "Corp.RegisteredOfficeAddress.Street2",
+          "Corp.RegisteredOfficeAddress.Street3"
+        ],
+        "llm_type": "coalesce",
+        "path_correct": true,
+        "type_correct": false,
+        "status": "PATH_OK"
+      },
+      {
+        "canonical_field": "business_address.city",
+        "expected_path": "Corp.RegisteredOfficeAddress",
+        "expected_type": "direct",
+        "optional": true,
+        "llm_path": "Corp.RegisteredOfficeAddress.City",
+        "llm_type": "direct",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "postal_address.street",
+        "expected_path": "Corp.PostalAddress",
+        "expected_type": [
+          "direct",
+          "fallback_chain"
+        ],
+        "optional": true,
+        "status": "OPTIONAL_SKIP",
+        "path_correct": null,
+        "type_correct": null
+      },
+      {
+        "canonical_field": "postal_address.city",
+        "expected_path": "Corp.PostalAddress",
+        "expected_type": "direct",
+        "optional": true,
+        "status": "OPTIONAL_SKIP",
+        "path_correct": null,
+        "type_correct": null
+      },
+      {
+        "canonical_field": "share_capital.amount",
+        "expected_path": "Corp.ShareCapitalValue",
+        "expected_type": "direct",
+        "optional": false,
+        "llm_path": "Corp.TotalShares",
+        "llm_type": "direct",
+        "path_correct": false,
+        "type_correct": true,
+        "status": "TYPE_OK"
+      },
+      {
+        "canonical_field": "share_capital.currency",
+        "expected_path": "Corp.ShareCurrency",
+        "expected_type": "direct",
+        "optional": false,
+        "llm_path": "Corp.ShareCurrency",
+        "llm_type": "direct",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "share_capital.fully_paid",
+        "expected_path": null,
+        "expected_type": null,
+        "optional": true,
+        "status": "OPTIONAL_SKIP",
+        "path_correct": null,
+        "type_correct": null
+      },
+      {
+        "canonical_field": "num_employees",
+        "expected_path": null,
+        "expected_type": null,
+        "optional": true,
+        "status": "OPTIONAL_SKIP",
+        "path_correct": null,
+        "type_correct": null
+      },
+      {
+        "canonical_field": "registration_date",
+        "expected_path": "Corp.RegistrationDateFormatted",
+        "expected_type": "direct",
+        "optional": false,
+        "llm_path": "Corp.RegistrationDateFormatted",
+        "llm_type": "direct",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "description",
+        "expected_path": "Activities[*].CorpActivityType",
+        "expected_type": "join_list",
+        "optional": false,
+        "llm_path": "Activities[*].CorpActivityType",
+        "llm_type": "join_list",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      }
+    ],
+    "req_field_pct": 100.0,
+    "req_path_pct": 92.3076923076923,
+    "req_full_pct": 92.3076923076923,
+    "all_field_pct": 69.56521739130434,
+    "all_path_pct": 60.86956521739131,
+    "all_full_pct": 56.52173913043478
+  },
+  {
+    "country": "Norway",
+    "total_expected": 23,
+    "total_required": 17,
+    "total_llm": 18,
+    "field_matches": 18,
+    "path_matches": 18,
+    "type_matches": 18,
+    "full_matches": 18,
+    "optional_missing": 5,
+    "missing_fields": [],
+    "extra_fields": [],
+    "details": [
+      {
+        "canonical_field": "company_name.legal_name",
+        "expected_path": "navn",
+        "expected_type": "direct",
+        "optional": false,
+        "llm_path": "navn",
+        "llm_type": "direct",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "company_name.trade_name",
+        "expected_path": null,
+        "expected_type": null,
+        "optional": true,
+        "status": "OPTIONAL_SKIP",
+        "path_correct": null,
+        "type_correct": null
+      },
+      {
+        "canonical_field": "company_name.short_name",
+        "expected_path": null,
+        "expected_type": null,
+        "optional": true,
+        "status": "OPTIONAL_SKIP",
+        "path_correct": null,
+        "type_correct": null
+      },
+      {
+        "canonical_field": "company_name.local_language_name",
+        "expected_path": null,
+        "expected_type": null,
+        "optional": true,
+        "status": "OPTIONAL_SKIP",
+        "path_correct": null,
+        "type_correct": null
+      },
+      {
+        "canonical_field": "unique_identifier.registration_number",
+        "expected_path": "organisasjonsnummer",
+        "expected_type": "direct",
+        "optional": false,
+        "llm_path": "organisasjonsnummer",
+        "llm_type": "direct",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "unique_identifier.prior_registration_number",
+        "expected_path": null,
+        "expected_type": null,
+        "optional": true,
+        "llm_path": "registreringsnummerIHjemlandet",
+        "llm_type": "direct",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "parent_company.registration_number",
+        "expected_path": null,
+        "expected_type": null,
+        "optional": true,
+        "status": "OPTIONAL_SKIP",
+        "path_correct": null,
+        "type_correct": null
+      },
+      {
+        "canonical_field": "parent_company.company_name",
+        "expected_path": null,
+        "expected_type": null,
+        "optional": true,
+        "status": "OPTIONAL_SKIP",
+        "path_correct": null,
+        "type_correct": null
+      },
+      {
+        "canonical_field": "company_type",
+        "expected_path": [
+          "organisasjonsform.kode",
+          "organisasjonsform.beskrivelse"
+        ],
+        "expected_type": [
+          "nested_field",
+          "direct"
+        ],
+        "optional": false,
+        "llm_path": "organisasjonsform.beskrivelse",
+        "llm_type": "nested_field",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "status",
+        "expected_path": "konkurs|underAvvikling|underTvangsavviklingEllerTvangsopplosning",
+        "expected_type": "boolean_logic",
+        "optional": false,
+        "llm_path": "konkurs=true->Bankrupt|underAvvikling=true->Under liquidation|underTvangsavviklingEllerTvangsopplosning=true->Forced dissolution|else->Active",
+        "llm_type": "boolean_logic",
+        "path_correct": true,
+        "refs_found": "3/3",
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "country.registration",
+        "expected_path": "NO",
+        "expected_type": "hardcode",
+        "optional": false,
+        "llm_path": "NO",
+        "llm_type": "hardcode",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "country.business_address",
+        "expected_path": "forretningsadresse.landkode",
+        "expected_type": [
+          "nested_field",
+          "direct"
+        ],
+        "optional": false,
+        "llm_path": "forretningsadresse.landkode",
+        "llm_type": "nested_field",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "country.postal_address",
+        "expected_path": "postadresse.landkode",
+        "expected_type": [
+          "nested_field",
+          "direct"
+        ],
+        "optional": false,
+        "llm_path": "postadresse.landkode",
+        "llm_type": "nested_field",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "business_address.street",
+        "expected_path": "forretningsadresse.adresse",
+        "expected_type": [
+          "join_list",
+          "direct",
+          "nested_field"
+        ],
+        "optional": false,
+        "llm_path": "forretningsadresse.adresse[*]",
+        "llm_type": "join_list",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "business_address.city",
+        "expected_path": "forretningsadresse.poststed",
+        "expected_type": [
+          "direct",
+          "nested_field"
+        ],
+        "optional": false,
+        "llm_path": "forretningsadresse.poststed",
+        "llm_type": "nested_field",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "postal_address.street",
+        "expected_path": "postadresse.adresse",
+        "expected_type": [
+          "join_list",
+          "direct",
+          "nested_field"
+        ],
+        "optional": false,
+        "llm_path": "postadresse.adresse[*]",
+        "llm_type": "join_list",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "postal_address.city",
+        "expected_path": "postadresse.poststed",
+        "expected_type": [
+          "direct",
+          "nested_field"
+        ],
+        "optional": false,
+        "llm_path": "postadresse.poststed",
+        "llm_type": "nested_field",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "num_employees",
+        "expected_path": "antallAnsatte",
+        "expected_type": "direct",
+        "optional": false,
+        "llm_path": "antallAnsatte",
+        "llm_type": "direct",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "share_capital.amount",
+        "expected_path": "kapital.belop",
+        "expected_type": [
+          "nested_field",
+          "direct"
+        ],
+        "optional": false,
+        "llm_path": "kapital.belop",
+        "llm_type": "nested_field",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "share_capital.currency",
+        "expected_path": "kapital.valuta",
+        "expected_type": [
+          "nested_field",
+          "direct"
+        ],
+        "optional": false,
+        "llm_path": "kapital.valuta",
+        "llm_type": "nested_field",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "share_capital.fully_paid",
+        "expected_path": "kapital.fulltInnbetalt",
+        "expected_type": [
+          "nested_field",
+          "direct"
+        ],
+        "optional": false,
+        "llm_path": "kapital.fulltInnbetalt",
+        "llm_type": "nested_field",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "registration_date",
+        "expected_path": [
+          "registreringsdatoEnhetsregisteret",
+          "registreringsdatoForetaksregisteret",
+          "stiftelsesdato"
+        ],
+        "expected_type": [
+          "direct",
+          "fallback_chain"
+        ],
+        "optional": false,
+        "llm_path": "registreringsdatoEnhetsregisteret",
+        "llm_type": "direct",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "description",
+        "expected_path": [
+          "vedtektsfestetFormaal",
+          "aktivitet"
+        ],
+        "expected_type": [
+          "fallback_chain",
+          "join_list"
+        ],
+        "optional": false,
+        "llm_path": [
+          "aktivitet[*]",
+          "vedtektsfestetFormaal[*]"
+        ],
+        "llm_type": "fallback_chain",
+        "path_correct": true,
+        "refs_found": "2/2",
+        "type_correct": true,
+        "status": "CORRECT"
+      }
+    ],
+    "req_field_pct": 100.0,
+    "req_path_pct": 100.0,
+    "req_full_pct": 100.0,
+    "all_field_pct": 78.26086956521739,
+    "all_path_pct": 78.26086956521739,
+    "all_full_pct": 78.26086956521739
+  },
+  {
+    "country": "Honduras",
+    "total_expected": 23,
+    "total_required": 14,
+    "total_llm": 16,
+    "field_matches": 16,
+    "path_matches": 16,
+    "type_matches": 16,
+    "full_matches": 16,
+    "optional_missing": 7,
+    "missing_fields": [],
+    "extra_fields": [],
+    "details": [
+      {
+        "canonical_field": "company_name.legal_name",
+        "expected_path": [
+          "Información General[0].Razón Social",
+          "Información General[0].Denominación Social"
+        ],
+        "expected_type": [
+          "fallback_chain",
+          "first_element_field"
+        ],
+        "optional": false,
+        "llm_path": [
+          "Información General[0].Denominación Social",
+          "Información General[0].Razón Social"
+        ],
+        "llm_type": "fallback_chain",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "company_name.trade_name",
+        "expected_path": "Información General[0].Nombre Comercial",
+        "expected_type": "first_element_field",
+        "optional": false,
+        "llm_path": "Información General[0].Nombre Comercial",
+        "llm_type": "first_element_field",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "company_name.short_name",
+        "expected_path": "Información General[0].Siglas",
+        "expected_type": "first_element_field",
+        "optional": false,
+        "llm_path": "Información General[0].Siglas",
+        "llm_type": "first_element_field",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "company_name.local_language_name",
+        "expected_path": null,
+        "expected_type": null,
+        "optional": true,
+        "status": "OPTIONAL_SKIP",
+        "path_correct": null,
+        "type_correct": null
+      },
+      {
+        "canonical_field": "unique_identifier.registration_number",
+        "expected_path": "FileNumber",
+        "expected_type": "direct",
+        "optional": false,
+        "llm_path": "FileNumber",
+        "llm_type": "direct",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "unique_identifier.prior_registration_number",
+        "expected_path": null,
+        "expected_type": null,
+        "optional": true,
+        "status": "OPTIONAL_SKIP",
+        "path_correct": null,
+        "type_correct": null
+      },
+      {
+        "canonical_field": "parent_company.registration_number",
+        "expected_path": null,
+        "expected_type": null,
+        "optional": true,
+        "status": "OPTIONAL_SKIP",
+        "path_correct": null,
+        "type_correct": null
+      },
+      {
+        "canonical_field": "parent_company.company_name",
+        "expected_path": null,
+        "expected_type": null,
+        "optional": true,
+        "status": "OPTIONAL_SKIP",
+        "path_correct": null,
+        "type_correct": null
+      },
+      {
+        "canonical_field": "company_type",
+        "expected_path": "Información General[0].Tipo de Comerciante",
+        "expected_type": "first_element_field",
+        "optional": false,
+        "llm_path": "Información General[0].Tipo de Comerciante",
+        "llm_type": "first_element_field",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "status",
+        "expected_path": "Información General[0].Estado",
+        "expected_type": "first_element_field",
+        "optional": false,
+        "llm_path": "Información General[0].Estado",
+        "llm_type": "first_element_field",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "country.registration",
+        "expected_path": "HN",
+        "expected_type": "hardcode",
+        "optional": false,
+        "llm_path": "HN",
+        "llm_type": "hardcode",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "country.business_address",
+        "expected_path": "HN",
+        "expected_type": "hardcode",
+        "optional": false,
+        "llm_path": "hardcode: HN",
+        "llm_type": "hardcode",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "country.postal_address",
+        "expected_path": "HN",
+        "expected_type": "hardcode",
+        "optional": true,
+        "llm_path": "hardcode: HN",
+        "llm_type": "hardcode",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "business_address.street",
+        "expected_path": "Información General[0].Dirección de la Empresa",
+        "expected_type": "first_element_field",
+        "optional": false,
+        "llm_path": "Información General[0].Dirección de la Empresa",
+        "llm_type": "first_element_field",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "business_address.city",
+        "expected_path": "Información General[0].Ubicación de la Empresa",
+        "expected_type": "first_element_field",
+        "optional": false,
+        "llm_path": "Información General[0].Ubicación de la Empresa",
+        "llm_type": "first_element_field",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "postal_address.street",
+        "expected_path": "Información General[0].Domicilio",
+        "expected_type": "first_element_field",
+        "optional": true,
+        "llm_path": "Información General[0].Domicilio",
+        "llm_type": "first_element_field",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "postal_address.city",
+        "expected_path": "Información General[0].Domicilio",
+        "expected_type": "first_element_field",
+        "optional": true,
+        "status": "OPTIONAL_SKIP",
+        "path_correct": null,
+        "type_correct": null
+      },
+      {
+        "canonical_field": "share_capital.amount",
+        "expected_path": [
+          "Capital[0].Capital Pagado",
+          "Capital[0].Capital Suscrito",
+          "Capital[0].Capital Maximus",
+          "Capital[0].Capital Mínimo"
+        ],
+        "expected_type": [
+          "fallback_chain",
+          "first_element_field"
+        ],
+        "optional": false,
+        "llm_path": "Capital[0].Capital Pagado",
+        "llm_type": "first_element_field",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "share_capital.currency",
+        "expected_path": "HNL",
+        "expected_type": "hardcode",
+        "optional": false,
+        "llm_path": "HNL",
+        "llm_type": "hardcode",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "share_capital.fully_paid",
+        "expected_path": null,
+        "expected_type": null,
+        "optional": true,
+        "status": "OPTIONAL_SKIP",
+        "path_correct": null,
+        "type_correct": null
+      },
+      {
+        "canonical_field": "num_employees",
+        "expected_path": null,
+        "expected_type": null,
+        "optional": true,
+        "status": "OPTIONAL_SKIP",
+        "path_correct": null,
+        "type_correct": null
+      },
+      {
+        "canonical_field": "registration_date",
+        "expected_path": [
+          "Información General[0].Vigencia",
+          "Resúmenes[0].Fecha Inscripción"
+        ],
+        "expected_type": "first_element_field",
+        "optional": false,
+        "llm_path": "Información General[0].Vigencia",
+        "llm_type": "first_element_field",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      },
+      {
+        "canonical_field": "description",
+        "expected_path": [
+          "Información General[0].Finalidad",
+          "Información General[0].Objeto Social de la Empresa"
+        ],
+        "expected_type": [
+          "first_element_field",
+          "fallback_chain"
+        ],
+        "optional": false,
+        "llm_path": [
+          "Información General[0].Finalidad",
+          "Información General[0].Objeto Social de la Empresa"
+        ],
+        "llm_type": "fallback_chain",
+        "path_correct": true,
+        "type_correct": true,
+        "status": "CORRECT"
+      }
+    ],
+    "req_field_pct": 100.0,
+    "req_path_pct": 100.0,
+    "req_full_pct": 100.0,
+    "all_field_pct": 69.56521739130434,
+    "all_path_pct": 69.56521739130434,
+    "all_full_pct": 69.56521739130434
+  }
+]

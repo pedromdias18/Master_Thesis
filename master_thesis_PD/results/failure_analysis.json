@@ -1,0 +1,138 @@
+{
+  "E1": {
+    "Myanmar": [
+      {
+        "field": "country.postal_address",
+        "baseline_status": "CORRECT",
+        "ablated_status": "OPTIONAL_SKIP",
+        "error_type": "Wrong",
+        "explanation": ""
+      },
+      {
+        "field": "num_employees",
+        "baseline_status": "CORRECT",
+        "ablated_status": "OPTIONAL_SKIP",
+        "error_type": "Wrong",
+        "explanation": ""
+      }
+    ],
+    "Norway": [
+      {
+        "field": "unique_identifier.prior_registration_number",
+        "baseline_status": "CORRECT",
+        "ablated_status": "OPTIONAL_SKIP",
+        "error_type": "Wrong",
+        "explanation": ""
+      }
+    ],
+    "Honduras": [
+      {
+        "field": "country.business_address",
+        "baseline_status": "CORRECT",
+        "ablated_status": "MISSING",
+        "error_type": "Missing",
+        "explanation": "LLM did not produce a rule for this field"
+      },
+      {
+        "field": "share_capital.fully_paid",
+        "baseline_status": "CORRECT",
+        "ablated_status": "OPTIONAL_SKIP",
+        "error_type": "Wrong",
+        "explanation": ""
+      }
+    ]
+  },
+  "E2": {
+    "Myanmar": [
+      {
+        "field": "country.postal_address",
+        "baseline_status": "CORRECT",
+        "ablated_status": "OPTIONAL_SKIP",
+        "error_type": "Wrong",
+        "explanation": ""
+      },
+      {
+        "field": "postal_address.street",
+        "baseline_status": "CORRECT",
+        "ablated_status": "OPTIONAL_SKIP",
+        "error_type": "Wrong",
+        "explanation": ""
+      },
+      {
+        "field": "num_employees",
+        "baseline_status": "CORRECT",
+        "ablated_status": "OPTIONAL_SKIP",
+        "error_type": "Wrong",
+        "explanation": ""
+      }
+    ],
+    "Norway": [
+      {
+        "field": "unique_identifier.prior_registration_number",
+        "baseline_status": "CORRECT",
+        "ablated_status": "OPTIONAL_SKIP",
+        "error_type": "Wrong",
+        "explanation": ""
+      },
+      {
+        "field": "share_capital.fully_paid",
+        "baseline_status": "CORRECT",
+        "ablated_status": "MISSING",
+        "error_type": "Missing",
+        "explanation": "LLM did not produce a rule for this field"
+      }
+    ],
+    "Honduras": [
+      {
+        "field": "country.business_address",
+        "baseline_status": "CORRECT",
+        "ablated_status": "MISSING",
+        "error_type": "Missing",
+        "explanation": "LLM did not produce a rule for this field"
+      },
+      {
+        "field": "share_capital.fully_paid",
+        "baseline_status": "CORRECT",
+        "ablated_status": "OPTIONAL_SKIP",
+        "error_type": "Wrong",
+        "explanation": ""
+      }
+    ]
+  },
+  "E3": {
+    "Myanmar": [
+      {
+        "field": "business_address.street",
+        "baseline_status": "CORRECT",
+        "ablated_status": "PATH_OK",
+        "error_type": "Wrong type",
+        "explanation": "Path changed: ['Corp.RegisteredOfficeAddress.Street1', 'Corp.RegisteredOfficeAddress.Street2', 'Corp.RegisteredOfficeAddress.Street3'] → Corp.RegisteredOfficeAddress.Street1 Type changed: fallback_chain → nested_field"
+      }
+    ],
+    "Norway": [
+      {
+        "field": "business_address.street",
+        "baseline_status": "CORRECT",
+        "ablated_status": "PATH_OK",
+        "error_type": "Wrong type",
+        "explanation": "Path changed: forretningsadresse.adresse → forretningsadresse.adresse[0] Type changed: join_list → first_element_field"
+      },
+      {
+        "field": "postal_address.street",
+        "baseline_status": "CORRECT",
+        "ablated_status": "PATH_OK",
+        "error_type": "Wrong type",
+        "explanation": "Path changed: postadresse.adresse → postadresse.adresse[0] Type changed: join_list → first_element_field"
+      }
+    ],
+    "Honduras": [
+      {
+        "field": "postal_address.street",
+        "baseline_status": "CORRECT",
+        "ablated_status": "OPTIONAL_SKIP",
+        "error_type": "Wrong",
+        "explanation": ""
+      }
+    ]
+  }
+}

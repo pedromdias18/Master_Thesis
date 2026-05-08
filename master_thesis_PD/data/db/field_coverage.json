@@ -1,0 +1,293 @@
+{
+  "Myanmar": {
+    "total_records": 50000,
+    "fields": {
+      "company_name.legal_name": {
+        "count": 50000,
+        "pct": 100.0
+      },
+      "company_name.trade_name": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "company_name.short_name": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "company_name.local_language_name": {
+        "count": 34931,
+        "pct": 69.86
+      },
+      "unique_identifier.registration_number": {
+        "count": 37524,
+        "pct": 75.05
+      },
+      "unique_identifier.prior_registration_number": {
+        "count": 26460,
+        "pct": 52.92
+      },
+      "parent_company.registration_number": {
+        "count": 1022,
+        "pct": 2.04
+      },
+      "parent_company.company_name": {
+        "count": 1044,
+        "pct": 2.09
+      },
+      "company_type": {
+        "count": 50000,
+        "pct": 100.0
+      },
+      "status": {
+        "count": 50000,
+        "pct": 100.0
+      },
+      "country.registration": {
+        "count": 50000,
+        "pct": 100.0
+      },
+      "country.business_address": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "country.postal_address": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "business_address.street": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "business_address.city": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "postal_address.street": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "postal_address.city": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "num_employees": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "share_capital.amount": {
+        "count": 37244,
+        "pct": 74.49
+      },
+      "share_capital.currency": {
+        "count": 37265,
+        "pct": 74.53
+      },
+      "share_capital.fully_paid": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "registration_date": {
+        "count": 50000,
+        "pct": 100.0
+      },
+      "description": {
+        "count": 37524,
+        "pct": 75.05
+      }
+    }
+  },
+  "Norway": {
+    "total_records": 50000,
+    "fields": {
+      "company_name.legal_name": {
+        "count": 50000,
+        "pct": 100.0
+      },
+      "company_name.trade_name": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "company_name.short_name": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "company_name.local_language_name": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "unique_identifier.registration_number": {
+        "count": 50000,
+        "pct": 100.0
+      },
+      "unique_identifier.prior_registration_number": {
+        "count": 8,
+        "pct": 0.02
+      },
+      "parent_company.registration_number": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "parent_company.company_name": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "company_type": {
+        "count": 50000,
+        "pct": 100.0
+      },
+      "status": {
+        "count": 50000,
+        "pct": 100.0
+      },
+      "country.registration": {
+        "count": 50000,
+        "pct": 100.0
+      },
+      "country.business_address": {
+        "count": 49956,
+        "pct": 99.91
+      },
+      "country.postal_address": {
+        "count": 28393,
+        "pct": 56.79
+      },
+      "business_address.street": {
+        "count": 49172,
+        "pct": 98.34
+      },
+      "business_address.city": {
+        "count": 49956,
+        "pct": 99.91
+      },
+      "postal_address.street": {
+        "count": 28295,
+        "pct": 56.59
+      },
+      "postal_address.city": {
+        "count": 28393,
+        "pct": 56.79
+      },
+      "num_employees": {
+        "count": 15549,
+        "pct": 31.1
+      },
+      "share_capital.amount": {
+        "count": 47299,
+        "pct": 94.6
+      },
+      "share_capital.currency": {
+        "count": 47300,
+        "pct": 94.6
+      },
+      "share_capital.fully_paid": {
+        "count": 780,
+        "pct": 1.56
+      },
+      "registration_date": {
+        "count": 50000,
+        "pct": 100.0
+      },
+      "description": {
+        "count": 50000,
+        "pct": 100.0
+      }
+    }
+  },
+  "Honduras": {
+    "total_records": 50000,
+    "fields": {
+      "company_name.legal_name": {
+        "count": 40256,
+        "pct": 80.51
+      },
+      "company_name.trade_name": {
+        "count": 17485,
+        "pct": 34.97
+      },
+      "company_name.short_name": {
+        "count": 36455,
+        "pct": 72.91
+      },
+      "company_name.local_language_name": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "unique_identifier.registration_number": {
+        "count": 50000,
+        "pct": 100.0
+      },
+      "unique_identifier.prior_registration_number": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "parent_company.registration_number": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "parent_company.company_name": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "company_type": {
+        "count": 50000,
+        "pct": 100.0
+      },
+      "status": {
+        "count": 50000,
+        "pct": 100.0
+      },
+      "country.registration": {
+        "count": 50000,
+        "pct": 100.0
+      },
+      "country.business_address": {
+        "count": 50000,
+        "pct": 100.0
+      },
+      "country.postal_address": {
+        "count": 50000,
+        "pct": 100.0
+      },
+      "business_address.street": {
+        "count": 49969,
+        "pct": 99.94
+      },
+      "business_address.city": {
+        "count": 50000,
+        "pct": 100.0
+      },
+      "postal_address.street": {
+        "count": 49981,
+        "pct": 99.96
+      },
+      "postal_address.city": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "num_employees": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "share_capital.amount": {
+        "count": 13561,
+        "pct": 27.12
+      },
+      "share_capital.currency": {
+        "count": 50000,
+        "pct": 100.0
+      },
+      "share_capital.fully_paid": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "registration_date": {
+        "count": 49994,
+        "pct": 99.99
+      },
+      "description": {
+        "count": 49999,
+        "pct": 100.0
+      }
+    }
+  }
+}

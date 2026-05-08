@@ -1,0 +1,102 @@
+[
+  {
+    "canonical_field": "company_name.legal_name",
+    "json_path": "Corp.CompanyName",
+    "extraction_type": "direct",
+    "reasoning": "CompanyName is the official registered name of the company in the Myanmar registry"
+  },
+  {
+    "canonical_field": "company_name.local_language_name",
+    "json_path": "Corp.AltName",
+    "extraction_type": "direct",
+    "reasoning": "AltName contains the company name in Burmese/local language script as shown in records 2 and 3"
+  },
+  {
+    "canonical_field": "unique_identifier.registration_number",
+    "json_path": "Corp.RegistrationNumber",
+    "extraction_type": "direct",
+    "reasoning": "RegistrationNumber is the current official registration number assigned by Myanmar registry"
+  },
+  {
+    "canonical_field": "unique_identifier.prior_registration_number",
+    "json_path": "Corp.PriorRegistrationNumber",
+    "extraction_type": "direct",
+    "reasoning": "PriorRegistrationNumber contains the old registration number from the previous system before re-registration"
+  },
+  {
+    "canonical_field": "parent_company.registration_number",
+    "json_path": "Corp.HoldingCompanyRegNumber",
+    "extraction_type": "direct",
+    "reasoning": "HoldingCompanyRegNumber contains the registration number of the parent/holding company"
+  },
+  {
+    "canonical_field": "parent_company.company_name",
+    "json_path": "Corp.HoldingCompanyName",
+    "extraction_type": "direct",
+    "reasoning": "HoldingCompanyName contains the name of the parent/holding company"
+  },
+  {
+    "canonical_field": "company_type",
+    "json_path": "Corp.CompanyType",
+    "extraction_type": "direct",
+    "reasoning": "CompanyType contains the human-readable description of the legal form (e.g., 'Overseas Corporation', 'Private Company Limited by Shares') which is preferred over CompanyTypeId"
+  },
+  {
+    "canonical_field": "status",
+    "json_path": "Corp.Status",
+    "extraction_type": "direct",
+    "reasoning": "Status contains the current life-cycle status of the company (e.g., 'Registered', 'Not Yet Re-Registered')"
+  },
+  {
+    "canonical_field": "country.registration",
+    "json_path": "MM",
+    "extraction_type": "hardcode",
+    "reasoning": "This is the Myanmar company registry, so registration country is always Myanmar (MM)"
+  },
+  {
+    "canonical_field": "registration_date",
+    "json_path": "Corp.RegistrationDateFormatted",
+    "extraction_type": "direct",
+    "reasoning": "RegistrationDateFormatted contains the date the company was registered in DD/MM/YYYY format"
+  },
+  {
+    "canonical_field": "description",
+    "json_path": "Activities[*].CorpActivityType",
+    "extraction_type": "join_list",
+    "reasoning": "Activities array contains business activity descriptions which describe what the company does. Join all activity types to capture full scope of business activities"
+  },
+  {
+    "canonical_field": "share_capital.amount",
+    "json_path": "Corp.TotalShares",
+    "extraction_type": "direct",
+    "reasoning": "TotalShares represents the total number of shares issued, which relates to share capital"
+  },
+  {
+    "canonical_field": "share_capital.currency",
+    "json_path": "Corp.ShareCurrency",
+    "extraction_type": "direct",
+    "reasoning": "ShareCurrency contains the ISO currency code for the share capital (e.g., 'MMK')"
+  },
+  {
+    "canonical_field": "business_address.street",
+    "json_path": [
+      "Corp.RegisteredOfficeAddress.Street1",
+      "Corp.RegisteredOfficeAddress.Street2",
+      "Corp.RegisteredOfficeAddress.Street3"
+    ],
+    "extraction_type": "coalesce",
+    "reasoning": "RegisteredOfficeAddress object contains Street1, Street2, Street3 fields for the business/registered office address street components"
+  },
+  {
+    "canonical_field": "business_address.city",
+    "json_path": "Corp.RegisteredOfficeAddress.City",
+    "extraction_type": "direct",
+    "reasoning": "RegisteredOfficeAddress.City contains the city for the registered office/business address"
+  },
+  {
+    "canonical_field": "country.business_address",
+    "json_path": "Corp.RegisteredOfficeAddress.Country",
+    "extraction_type": "direct",
+    "reasoning": "RegisteredOfficeAddress.Country contains the country for the business address"
+  }
+]

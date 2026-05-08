@@ -1,0 +1,113 @@
+[
+  {
+    "canonical_field": "company_name.legal_name",
+    "json_path": "navn",
+    "extraction_type": "direct",
+    "reasoning": "The 'navn' field contains the official registered name of the company"
+  },
+  {
+    "canonical_field": "unique_identifier.registration_number",
+    "json_path": "organisasjonsnummer",
+    "extraction_type": "direct",
+    "reasoning": "The 'organisasjonsnummer' is the Norwegian organization number, serving as the unique registration identifier"
+  },
+  {
+    "canonical_field": "company_type",
+    "json_path": "organisasjonsform.beskrivelse",
+    "extraction_type": "nested_field",
+    "reasoning": "Using the human-readable description (e.g., 'Stiftelse', 'Aksjeselskap') rather than the code for better downstream normalization"
+  },
+  {
+    "canonical_field": "status",
+    "json_path": "konkurs=true->Bankrupt|underAvvikling=true->Under liquidation|underTvangsavviklingEllerTvangsopplosning=true->Forced dissolution|else->Active",
+    "extraction_type": "boolean_logic",
+    "reasoning": "Status derived from boolean flags: konkurs (bankruptcy), underAvvikling (under liquidation), underTvangsavviklingEllerTvangsopplosning (forced dissolution)"
+  },
+  {
+    "canonical_field": "country.registration",
+    "json_path": "NO",
+    "extraction_type": "hardcode",
+    "reasoning": "This is Norwegian registry data (Brønnøysund), all companies are registered in Norway"
+  },
+  {
+    "canonical_field": "country.business_address",
+    "json_path": "forretningsadresse.landkode",
+    "extraction_type": "nested_field",
+    "reasoning": "The landkode in forretningsadresse contains the ISO country code for the business address"
+  },
+  {
+    "canonical_field": "country.postal_address",
+    "json_path": "postadresse.landkode",
+    "extraction_type": "nested_field",
+    "reasoning": "The landkode in postadresse contains the ISO country code for the postal address"
+  },
+  {
+    "canonical_field": "business_address.street",
+    "json_path": "forretningsadresse.adresse[*]",
+    "extraction_type": "join_list",
+    "reasoning": "The adresse field is an array of street address lines that should be joined"
+  },
+  {
+    "canonical_field": "business_address.city",
+    "json_path": "forretningsadresse.poststed",
+    "extraction_type": "nested_field",
+    "reasoning": "The poststed field contains the city/municipality for the business address"
+  },
+  {
+    "canonical_field": "postal_address.street",
+    "json_path": "postadresse.adresse[*]",
+    "extraction_type": "join_list",
+    "reasoning": "The adresse field in postadresse is an array of postal street address lines"
+  },
+  {
+    "canonical_field": "postal_address.city",
+    "json_path": "postadresse.poststed",
+    "extraction_type": "nested_field",
+    "reasoning": "The poststed field in postadresse contains the postal city/municipality"
+  },
+  {
+    "canonical_field": "num_employees",
+    "json_path": "antallAnsatte",
+    "extraction_type": "direct",
+    "reasoning": "The antallAnsatte field contains the number of employees"
+  },
+  {
+    "canonical_field": "share_capital.amount",
+    "json_path": "kapital.belop",
+    "extraction_type": "nested_field",
+    "reasoning": "The belop field within kapital contains the capital amount"
+  },
+  {
+    "canonical_field": "share_capital.currency",
+    "json_path": "kapital.valuta",
+    "extraction_type": "nested_field",
+    "reasoning": "The valuta field contains the currency code (e.g., NOK)"
+  },
+  {
+    "canonical_field": "share_capital.fully_paid",
+    "json_path": "kapital.fulltInnbetalt",
+    "extraction_type": "nested_field",
+    "reasoning": "The fulltInnbetalt boolean indicates whether capital is fully paid up"
+  },
+  {
+    "canonical_field": "registration_date",
+    "json_path": "registreringsdatoEnhetsregisteret",
+    "extraction_type": "direct",
+    "reasoning": "The registreringsdatoEnhetsregisteret is the date of registration in the Entity Register"
+  },
+  {
+    "canonical_field": "description",
+    "json_path": [
+      "aktivitet[*]",
+      "vedtektsfestetFormaal[*]"
+    ],
+    "extraction_type": "fallback_chain",
+    "reasoning": "Try aktivitet (business activities) first as it describes what the company does, fall back to vedtektsfestetFormaal (statutory purpose)"
+  },
+  {
+    "canonical_field": "unique_identifier.prior_registration_number",
+    "json_path": "registreringsnummerIHjemlandet",
+    "extraction_type": "direct",
+    "reasoning": "For foreign entities (UTLA), this field contains the registration number from their home country, which serves as a prior/alternative registration number. Example: '5562564129' for the Swedish Siemens entity"
+  }
+]

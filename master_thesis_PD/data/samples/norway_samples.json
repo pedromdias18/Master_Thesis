@@ -1,0 +1,306 @@
+[
+  {
+    "organisasjonsnummer": "970010815",
+    "navn": "NORSK FOLKEMUSEUM STI",
+    "organisasjonsform": {
+      "kode": "STI",
+      "beskrivelse": "Stiftelse",
+      "links": []
+    },
+    "hjemmeside": "www.norskfolkemuseum.no",
+    "postadresse": {
+      "land": "Norge",
+      "landkode": "NO",
+      "postnummer": "0214",
+      "poststed": "OSLO",
+      "adresse": [
+        "Postboks 720 Skøyen"
+      ],
+      "kommune": "OSLO",
+      "kommunenummer": "0301"
+    },
+    "registreringsdatoEnhetsregisteret": "1995-02-20",
+    "registrertIMvaregisteret": true,
+    "frivilligMvaRegistrertBeskrivelser": [
+      "Utleier av bygg eller anlegg"
+    ],
+    "naeringskode1": {
+      "kode": "91.212",
+      "beskrivelse": "Drift av kulturhistoriske museer"
+    },
+    "naeringskode2": {
+      "kode": "01.410",
+      "beskrivelse": "Melkeproduksjon på storfe og oppdrett av melkekyr"
+    },
+    "naeringskode3": {
+      "kode": "68.200",
+      "beskrivelse": "Utleie av egen eller leid fast eiendom"
+    },
+    "antallAnsatte": 621,
+    "harRegistrertAntallAnsatte": true,
+    "registreringsdatoFrivilligMerverdiavgiftsregisteret": "2021-02-27",
+    "registreringsdatoMerverdiavgiftsregisteret": "1991-01-01",
+    "registreringsdatoMerverdiavgiftsregisteretEnhetsregisteret": "1995-02-20",
+    "registreringsdatoAntallAnsatteEnhetsregisteret": "2026-01-13",
+    "registreringsdatoAntallAnsatteNAVAaregisteret": "2026-01-10",
+    "epostadresse": "post@norskfolkemuseum.no",
+    "telefon": "22 12 37 00",
+    "forretningsadresse": {
+      "land": "Norge",
+      "landkode": "NO",
+      "postnummer": "0287",
+      "poststed": "OSLO",
+      "adresse": [
+        "Museumsveien 10"
+      ],
+      "kommune": "OSLO",
+      "kommunenummer": "0301"
+    },
+    "stiftelsesdato": "1894-12-19",
+    "institusjonellSektorkode": {
+      "kode": "6100",
+      "beskrivelse": "Statsforvaltningen"
+    },
+    "registrertIForetaksregisteret": true,
+    "registrertIStiftelsesregisteret": true,
+    "registrertIFrivillighetsregisteret": false,
+    "sisteInnsendteAarsregnskap": "2024",
+    "konkurs": false,
+    "underAvvikling": false,
+    "underTvangsavviklingEllerTvangsopplosning": false,
+    "maalform": "Bokmål",
+    "vedtektsdato": "2024-06-11",
+    "vedtektsfestetFormaal": [
+      "Samle, dokumentere, bevare og utstille bygninger og gjenstander som",
+      "belyser liv og livsvilkår i Norge, fortrinnsvis fra tiden etter",
+      "reformasjonen. Samle og bearbeide opplysninger om liv og livsvilkår i",
+      "Norge i denne tiden. Spre kunnskap om dette, så vel i vitenskapelig",
+      "som populær form. Forvalte Bygdø Kongsgård. Ha et forvalteransvar for",
+      "Bogstad Gård.",
+      " ",
+      "Norsk Folkemuseum vil ha en egen avdeling på Eidsvoll under",
+      "betegnelsen Eidsvoll 1814. Avdelingen skal forvalte Eidsvollbygningen",
+      "som nasjonalmonument, formidle historien om 1814 og vise den videre",
+      "utviklingen i norsk politisk historie, skape interesse og engasjement",
+      "for demokratiets utfordringer i vår tid.",
+      " ",
+      "Norsk Folkemuseum vil ha en egen avdeling på Bygdøynes i Oslo under",
+      "betegnelsen Norsk Maritimt Museum. Avdelingen skal skape kunnskap om",
+      "norsk sjøfart og annen virksomhet knyttet til kyst, hav og vassdrag i",
+      "historiske og samtlige perspektiver. Det er videre et mål å belyse",
+      "hvordan dette har hatt og har betydning for kulturell, sosial og",
+      "økonomisk utvikling i Norge. Ivareta det forvaltningsansvar som",
+      "pålegges museumsavdelingen i henhold til lov om kulturminner.",
+      " ",
+      "Norsk Folkemuseum kan også forestå annen virksomhet av kulturell art",
+      "når særskilte grunner tilsier dette.",
+      " ",
+      "Norsk Folkemuseum kan delta i samarbeidet i det nasjonale",
+      "museumsnettverket. Norsk Folkemuseum skal også i naturlig utstrekning",
+      "aktivt samarbeide med museer i andre land.",
+      " ",
+      "Norsk Folkemuseum kan også drive med økonomisk virksomhet med naturlig",
+      "tilknytning til museets virksomhet, slik som kafe/restaurant,",
+      "museumsbutikk, utleievirksomhet mv."
+    ],
+    "aktivitet": [
+      "Drift av museumer, dyrking av jordbruksvekster og gårdsbruk samt",
+      "museums og suvernirbutikk, utleie av næringsarealer."
+    ],
+    "registreringsdatoForetaksregisteret": "1999-11-05",
+    "registrertIPartiregisteret": false,
+    "paategninger": [],
+    "erIKonsern": false,
+    "kapital": {
+      "belop": 36050000.0,
+      "type": "Grunnkapital",
+      "valuta": "NOK",
+      "innbetalt": 36050000.0,
+      "fulltInnbetalt": true,
+      "innfortDato": "2016-05-24"
+    },
+    "links": [],
+    "respons_klasse": "Enhet"
+  },
+  {
+    "organisasjonsnummer": "981902114",
+    "navn": "SIEMENS FINANCIAL SERVICES AB",
+    "organisasjonsform": {
+      "kode": "UTLA",
+      "beskrivelse": "Utenlandsk enhet",
+      "links": []
+    },
+    "hjemmeside": "www.siemens.se/finance",
+    "postadresse": {
+      "land": "Sverige",
+      "landkode": "SE",
+      "poststed": "SE-169 03 SOLNA",
+      "adresse": [
+        "Postboks 3094"
+      ]
+    },
+    "registreringsdatoEnhetsregisteret": "2000-04-26",
+    "registrertIMvaregisteret": false,
+    "harRegistrertAntallAnsatte": false,
+    "mobil": "0046902002000",
+    "forretningsadresse": {
+      "land": "Sverige",
+      "landkode": "SE",
+      "poststed": "SE-169 79 SOLNA",
+      "adresse": [
+        "Evenemangsgatan 21"
+      ]
+    },
+    "stiftelsesdato": "1997-11-04",
+    "registrertIForetaksregisteret": true,
+    "registrertIStiftelsesregisteret": false,
+    "registrertIFrivillighetsregisteret": false,
+    "konkurs": false,
+    "underAvvikling": false,
+    "underTvangsavviklingEllerTvangsopplosning": false,
+    "maalform": "Bokmål",
+    "vedtektsdato": "2005-09-20",
+    "vedtektsfestetFormaal": [
+      "Selskapet har som formål med sin virksomhet, uten å drive",
+      "bankvirksomhet, å bedrive finansieringsvirksomhet og virksomhet som",
+      "har en naturlig tilknytning til finansieringsvirksomheten. Selskapet",
+      "får dermed bl.a.:",
+      "* yte og formidle kreditt",
+      "* medvirke til finansiering, bl.a. gjennom å erverve fordringer og",
+      "drive løsøreleasing",
+      "* stille garantier for kreditt og lignende formål",
+      "* medvirke til salg av forsikringstjenester, samt",
+      "* gi råd og bistand i økonomiske spørsmål samt i finansierings- og",
+      "bedriftsledelsesspørsmål, for øvrig i sammenheng med ovenfor",
+      "oppgitte virksomheter."
+    ],
+    "aktivitet": [
+      "Hovedforetaket."
+    ],
+    "registreringsdatoForetaksregisteret": "2000-04-26",
+    "registrertIPartiregisteret": false,
+    "paategninger": [],
+    "erIKonsern": false,
+    "registreringsnummerIHjemlandet": "5562564129",
+    "foretaksformIHjemlandet": {
+      "kode": "AB",
+      "beskrivelse": "Privata Aktiebolag",
+      "beskrivelseBokmaal": "Aksjeselskap",
+      "links": []
+    },
+    "utenlandskRegisterNavn": "Bolagsverket",
+    "utenlandskRegisterAdresse": {
+      "land": "Sverige",
+      "poststed": "851 81 SUNDSVALL",
+      "adresse": [
+        "Stuvarvägen 21"
+      ]
+    },
+    "underlagtLovgivningLand": "Sverige",
+    "underlagtLovgivningLandKode": "SE",
+    "links": [],
+    "respons_klasse": "Enhet"
+  },
+  {
+    "organisasjonsnummer": "926838385",
+    "navn": "OBTAIN AS",
+    "organisasjonsform": {
+      "kode": "AS",
+      "beskrivelse": "Aksjeselskap",
+      "links": []
+    },
+    "postadresse": {
+      "land": "Norge",
+      "landkode": "NO",
+      "postnummer": "3033",
+      "poststed": "DRAMMEN",
+      "adresse": [
+        "c/o Ljone Skogaas",
+        "Mårstien 34"
+      ],
+      "kommune": "DRAMMEN",
+      "kommunenummer": "3301"
+    },
+    "registreringsdatoEnhetsregisteret": "2021-04-22",
+    "registrertIMvaregisteret": true,
+    "naeringskode1": {
+      "kode": "43.340",
+      "beskrivelse": "Maler- og glassarbeid"
+    },
+    "hjelpeenhetskode": {
+      "kode": "70.100",
+      "beskrivelse": "Hovedkontortjenester"
+    },
+    "harRegistrertAntallAnsatte": true,
+    "registreringsdatoMerverdiavgiftsregisteret": "2021-07-01",
+    "registreringsdatoMerverdiavgiftsregisteretEnhetsregisteret": "2021-08-23",
+    "registreringsdatoAntallAnsatteEnhetsregisteret": "2023-06-12",
+    "registreringsdatoAntallAnsatteNAVAaregisteret": "2023-06-10",
+    "forretningsadresse": {
+      "land": "Norge",
+      "landkode": "NO",
+      "postnummer": "3414",
+      "poststed": "LIERSTRANDA",
+      "adresse": [],
+      "kommune": "LIER",
+      "kommunenummer": "3312"
+    },
+    "stiftelsesdato": "2021-01-15",
+    "institusjonellSektorkode": {
+      "kode": "2100",
+      "beskrivelse": "Private aksjeselskaper mv."
+    },
+    "registrertIForetaksregisteret": true,
+    "registrertIStiftelsesregisteret": false,
+    "registrertIFrivillighetsregisteret": false,
+    "sisteInnsendteAarsregnskap": "2023",
+    "konkurs": false,
+    "underAvvikling": false,
+    "underTvangsavviklingEllerTvangsopplosning": false,
+    "maalform": "Bokmål",
+    "vedtektsdato": "2023-09-01",
+    "vedtektsfestetFormaal": [
+      "Investering i verdipapirer inklusive aksjer og andre sertifikater og",
+      "obligasjoner, så vel som andre rentebærende papirer i enhver form og",
+      "med ethvert navn. Handel og agentur, import og eksport, salg av",
+      "rådgivningstjenester, samt alt som står i forbindelse med dette,",
+      "herunder deltagelse i andre selskaper med samme eller lignende formål.",
+      "På deltid å administrere andre selskaper eller forretningsvirksomheter",
+      "av enhver art, direkte eller indirekte. Gjøre alt det nødvendige eller",
+      "hensiktsmessige for oppfyllelse av de ovennevnte formål eller hva som",
+      "er forbundet med dem i videste forstand."
+    ],
+    "aktivitet": [
+      "Investering i verdipapirer inklusive aksjer og andre sertifikater og",
+      "obligasjoner, så vel som andre rentebærende papirer i enhver form og",
+      "med ethvert navn. Handel og agentur, import og eksport, salg av",
+      "rådgivningstjenester, samt alt som står i forbindelse med dette,",
+      "herunder deltagelse i andre selskaper med samme eller lignende formål.",
+      "På deltid å administrere andre selskaper eller forretningsvirksomheter",
+      "av enhver art, direkte eller indirekte. Gjøre alt det nødvendige eller",
+      "hensiktsmessige for oppfyllelse av de ovennevnte formål eller hva som",
+      "er forbundet med dem i videste forstand."
+    ],
+    "registreringsdatoForetaksregisteret": "2021-04-22",
+    "registrertIPartiregisteret": false,
+    "paategninger": [
+      {
+        "infotype": "FADR",
+        "tekst": "Foretaksregisteret har grunn til å anta at forretningsadressen er feil. Foretaket har fått pålegg om å melde endring.",
+        "innfoertDato": "2025-12-18"
+      }
+    ],
+    "fravalgRevisjonDato": "2021-04-22",
+    "fravalgRevisjonBeslutningsDato": "2021-01-15",
+    "erIKonsern": false,
+    "kapital": {
+      "belop": 4580000.0,
+      "antallAksjer": 45800,
+      "type": "Aksjekapital",
+      "valuta": "NOK",
+      "innfortDato": "2023-09-19"
+    },
+    "links": [],
+    "respons_klasse": "Enhet"
+  }
+]

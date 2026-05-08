@@ -1,0 +1,395 @@
+{
+  "experiment": "E1",
+  "experiment_name": "E1 — No two-pass",
+  "country": "Myanmar",
+  "config": {
+    "two_pass": false,
+    "use_sample_picker": true,
+    "rich_schema": true
+  },
+  "timestamp": "2026-04-20T16:06:33.090246",
+  "llm_calls": 1,
+  "num_rules": 17,
+  "rules": [
+    {
+      "canonical_field": "company_name.legal_name",
+      "json_path": "Corp.CompanyName",
+      "extraction_type": "direct",
+      "reasoning": "CompanyName contains the official registered name of the company"
+    },
+    {
+      "canonical_field": "company_name.local_language_name",
+      "json_path": "Corp.AltName",
+      "extraction_type": "direct",
+      "reasoning": "AltName contains alternative names including Burmese script names as seen in examples"
+    },
+    {
+      "canonical_field": "unique_identifier.registration_number",
+      "json_path": "Corp.RegistrationNumber",
+      "extraction_type": "direct",
+      "reasoning": "RegistrationNumber is the current official registration number"
+    },
+    {
+      "canonical_field": "unique_identifier.prior_registration_number",
+      "json_path": "Corp.PriorRegistrationNumber",
+      "extraction_type": "direct",
+      "reasoning": "PriorRegistrationNumber contains the previous registration number from old system"
+    },
+    {
+      "canonical_field": "parent_company.registration_number",
+      "json_path": "Corp.HoldingCompanyRegNumber",
+      "extraction_type": "direct",
+      "reasoning": "HoldingCompanyRegNumber contains the registration number of the parent/holding company"
+    },
+    {
+      "canonical_field": "parent_company.company_name",
+      "json_path": "Corp.HoldingCompanyName",
+      "extraction_type": "direct",
+      "reasoning": "HoldingCompanyName contains the name of the parent/holding company"
+    },
+    {
+      "canonical_field": "company_type",
+      "json_path": "Corp.CompanyType",
+      "extraction_type": "direct",
+      "reasoning": "CompanyType contains human-readable legal form descriptions like 'Private Company Limited by Shares' and 'Overseas Corporation'"
+    },
+    {
+      "canonical_field": "status",
+      "json_path": "Corp.Status",
+      "extraction_type": "direct",
+      "reasoning": "Status field contains the current life-cycle status like 'Registered' and 'Not Yet Re-Registered'"
+    },
+    {
+      "canonical_field": "country.registration",
+      "json_path": "MM",
+      "extraction_type": "hardcode",
+      "reasoning": "Data is from Myanmar company registry, so registration country is always MM (ISO 3166-1 alpha-2 for Myanmar)"
+    },
+    {
+      "canonical_field": "business_address.street",
+      "json_path": [
+        "Corp.RegisteredOfficeAddress.Street1",
+        "Corp.RegisteredOfficeAddress.Street2",
+        "Corp.RegisteredOfficeAddress.Street3"
+      ],
+      "extraction_type": "fallback_chain",
+      "reasoning": "RegisteredOfficeAddress contains the business address with Street1/Street2/Street3 fields, using fallback to get first available"
+    },
+    {
+      "canonical_field": "business_address.city",
+      "json_path": "Corp.RegisteredOfficeAddress.City",
+      "extraction_type": "direct",
+      "reasoning": "City field within RegisteredOfficeAddress contains the city name"
+    },
+    {
+      "canonical_field": "postal_address.street",
+      "json_path": [
+        "Corp.PostalAddress.Street1",
+        "Corp.PostalAddress.Street2",
+        "Corp.PostalAddress.Street3"
+      ],
+      "extraction_type": "fallback_chain",
+      "reasoning": "PostalAddress contains separate mailing address with Street1/Street2/Street3 fields"
+    },
+    {
+      "canonical_field": "postal_address.city",
+      "json_path": "Corp.PostalAddress.City",
+      "extraction_type": "direct",
+      "reasoning": "City field within PostalAddress contains the postal city name"
+    },
+    {
+      "canonical_field": "share_capital.amount",
+      "json_path": "Corp.ShareCapitalValue",
+      "extraction_type": "direct",
+      "reasoning": "ShareCapitalValue contains the total share capital amount"
+    },
+    {
+      "canonical_field": "share_capital.currency",
+      "json_path": "Corp.ShareCurrency",
+      "extraction_type": "direct",
+      "reasoning": "ShareCurrency contains the currency code for share capital (e.g. 'MMK')"
+    },
+    {
+      "canonical_field": "registration_date",
+      "json_path": "Corp.RegistrationDateFormatted",
+      "extraction_type": "direct",
+      "reasoning": "RegistrationDateFormatted contains the incorporation/registration date in DD/MM/YYYY format"
+    },
+    {
+      "canonical_field": "description",
+      "json_path": "Activities[*].CorpActivityType",
+      "extraction_type": "join_list",
+      "reasoning": "Activities array contains business activity descriptions that should be joined to form a comprehensive description of what the company does"
+    }
+  ],
+  "metrics": {
+    "total_required": 13,
+    "total_expected": 23,
+    "field_coverage": 100.0,
+    "path_accuracy": 100.0,
+    "full_accuracy": 100.0,
+    "optional_skips": 6,
+    "missing_fields": [],
+    "extra_fields": []
+  },
+  "details": [
+    {
+      "canonical_field": "company_name.legal_name",
+      "expected_path": "Corp.CompanyName",
+      "expected_type": "direct",
+      "optional": false,
+      "llm_path": "Corp.CompanyName",
+      "llm_type": "direct",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "company_name.local_language_name",
+      "expected_path": "Corp.AltName",
+      "expected_type": "direct",
+      "optional": false,
+      "llm_path": "Corp.AltName",
+      "llm_type": "direct",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "company_name.trade_name",
+      "expected_path": null,
+      "expected_type": null,
+      "optional": true,
+      "status": "OPTIONAL_SKIP",
+      "path_correct": null,
+      "type_correct": null
+    },
+    {
+      "canonical_field": "company_name.short_name",
+      "expected_path": null,
+      "expected_type": null,
+      "optional": true,
+      "status": "OPTIONAL_SKIP",
+      "path_correct": null,
+      "type_correct": null
+    },
+    {
+      "canonical_field": "unique_identifier.registration_number",
+      "expected_path": "Corp.RegistrationNumber",
+      "expected_type": "direct",
+      "optional": false,
+      "llm_path": "Corp.RegistrationNumber",
+      "llm_type": "direct",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "unique_identifier.prior_registration_number",
+      "expected_path": "Corp.PriorRegistrationNumber",
+      "expected_type": "direct",
+      "optional": false,
+      "llm_path": "Corp.PriorRegistrationNumber",
+      "llm_type": "direct",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "parent_company.registration_number",
+      "expected_path": "Corp.HoldingCompanyRegNumber",
+      "expected_type": "direct",
+      "optional": false,
+      "llm_path": "Corp.HoldingCompanyRegNumber",
+      "llm_type": "direct",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "parent_company.company_name",
+      "expected_path": "Corp.HoldingCompanyName",
+      "expected_type": "direct",
+      "optional": false,
+      "llm_path": "Corp.HoldingCompanyName",
+      "llm_type": "direct",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "company_type",
+      "expected_path": "Corp.CompanyType",
+      "expected_type": "direct",
+      "optional": false,
+      "llm_path": "Corp.CompanyType",
+      "llm_type": "direct",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "status",
+      "expected_path": "Corp.Status",
+      "expected_type": "direct",
+      "optional": false,
+      "llm_path": "Corp.Status",
+      "llm_type": "direct",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "country.registration",
+      "expected_path": "MM",
+      "expected_type": "hardcode",
+      "optional": false,
+      "llm_path": "MM",
+      "llm_type": "hardcode",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "country.business_address",
+      "expected_path": "Corp.HoldingCompanyJurisdiction",
+      "expected_type": [
+        "direct",
+        "hardcode"
+      ],
+      "optional": true,
+      "status": "OPTIONAL_SKIP",
+      "path_correct": null,
+      "type_correct": null
+    },
+    {
+      "canonical_field": "country.postal_address",
+      "expected_path": "Corp.PostalAddress",
+      "expected_type": "direct",
+      "optional": true,
+      "status": "OPTIONAL_SKIP",
+      "path_correct": null,
+      "type_correct": null
+    },
+    {
+      "canonical_field": "business_address.street",
+      "expected_path": "Corp.RegisteredOfficeAddress",
+      "expected_type": [
+        "direct",
+        "fallback_chain"
+      ],
+      "optional": true,
+      "llm_path": [
+        "Corp.RegisteredOfficeAddress.Street1",
+        "Corp.RegisteredOfficeAddress.Street2",
+        "Corp.RegisteredOfficeAddress.Street3"
+      ],
+      "llm_type": "fallback_chain",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "business_address.city",
+      "expected_path": "Corp.RegisteredOfficeAddress",
+      "expected_type": "direct",
+      "optional": true,
+      "llm_path": "Corp.RegisteredOfficeAddress.City",
+      "llm_type": "direct",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "postal_address.street",
+      "expected_path": "Corp.PostalAddress",
+      "expected_type": [
+        "direct",
+        "fallback_chain"
+      ],
+      "optional": true,
+      "llm_path": [
+        "Corp.PostalAddress.Street1",
+        "Corp.PostalAddress.Street2",
+        "Corp.PostalAddress.Street3"
+      ],
+      "llm_type": "fallback_chain",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "postal_address.city",
+      "expected_path": "Corp.PostalAddress",
+      "expected_type": "direct",
+      "optional": true,
+      "llm_path": "Corp.PostalAddress.City",
+      "llm_type": "direct",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "share_capital.amount",
+      "expected_path": "Corp.ShareCapitalValue",
+      "expected_type": "direct",
+      "optional": false,
+      "llm_path": "Corp.ShareCapitalValue",
+      "llm_type": "direct",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "share_capital.currency",
+      "expected_path": "Corp.ShareCurrency",
+      "expected_type": "direct",
+      "optional": false,
+      "llm_path": "Corp.ShareCurrency",
+      "llm_type": "direct",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "share_capital.fully_paid",
+      "expected_path": null,
+      "expected_type": null,
+      "optional": true,
+      "status": "OPTIONAL_SKIP",
+      "path_correct": null,
+      "type_correct": null
+    },
+    {
+      "canonical_field": "num_employees",
+      "expected_path": null,
+      "expected_type": null,
+      "optional": true,
+      "status": "OPTIONAL_SKIP",
+      "path_correct": null,
+      "type_correct": null
+    },
+    {
+      "canonical_field": "registration_date",
+      "expected_path": "Corp.RegistrationDateFormatted",
+      "expected_type": "direct",
+      "optional": false,
+      "llm_path": "Corp.RegistrationDateFormatted",
+      "llm_type": "direct",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "description",
+      "expected_path": "Activities[*].CorpActivityType",
+      "expected_type": "join_list",
+      "optional": false,
+      "llm_path": "Activities[*].CorpActivityType",
+      "llm_type": "join_list",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    }
+  ]
+}

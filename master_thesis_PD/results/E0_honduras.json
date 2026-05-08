@@ -1,0 +1,413 @@
+{
+  "experiment": "E0",
+  "experiment_name": "E0 — Baseline (all ON)",
+  "country": "Honduras",
+  "config": {
+    "two_pass": true,
+    "use_sample_picker": true,
+    "rich_schema": true
+  },
+  "timestamp": "2026-04-20T16:06:14.663323",
+  "llm_calls": 2,
+  "num_rules": 17,
+  "rules": [
+    {
+      "canonical_field": "company_name.legal_name",
+      "json_path": [
+        "Información General[0].Denominación Social",
+        "Información General[0].Razón Social"
+      ],
+      "extraction_type": "fallback_chain",
+      "reasoning": "Denominación Social is used for sociedad anónima (SA), Razón Social for sociedad de responsabilidad limitada (SRL). One is always null and the other populated. Denominación Social is preferred as it appears first in records."
+    },
+    {
+      "canonical_field": "company_name.trade_name",
+      "json_path": "Información General[0].Nombre Comercial",
+      "extraction_type": "first_element_field",
+      "reasoning": "Nombre Comercial is the commercial/trading name, distinct from legal name"
+    },
+    {
+      "canonical_field": "company_name.short_name",
+      "json_path": "Información General[0].Siglas",
+      "extraction_type": "first_element_field",
+      "reasoning": "Siglas contains the abbreviated form or acronym of the company name"
+    },
+    {
+      "canonical_field": "unique_identifier.registration_number",
+      "json_path": "FileNumber",
+      "extraction_type": "direct",
+      "reasoning": "FileNumber is the official registration number assigned by the Honduras registry"
+    },
+    {
+      "canonical_field": "company_type",
+      "json_path": "Información General[0].Tipo de Comerciante",
+      "extraction_type": "first_element_field",
+      "reasoning": "Tipo de Comerciante contains the human-readable legal form description (e.g. SOCIEDAD ANONIMA, SOCIEDAD DE RESPONSABILIDAD LIMITADA SRL)"
+    },
+    {
+      "canonical_field": "status",
+      "json_path": "Información General[0].Estado",
+      "extraction_type": "first_element_field",
+      "reasoning": "Estado field contains the current status of the company (e.g. ACTIVO)"
+    },
+    {
+      "canonical_field": "country.registration",
+      "json_path": "HN",
+      "extraction_type": "hardcode",
+      "reasoning": "All records are from Honduras national registry, ISO alpha-2 code is HN"
+    },
+    {
+      "canonical_field": "country.business_address",
+      "json_path": "HN",
+      "extraction_type": "hardcode",
+      "reasoning": "All companies operate in Honduras based on Ubicación de la Empresa field showing Honduras locations"
+    },
+    {
+      "canonical_field": "business_address.street",
+      "json_path": "Información General[0].Dirección de la Empresa",
+      "extraction_type": "first_element_field",
+      "reasoning": "Dirección de la Empresa contains the street/address information of the business location"
+    },
+    {
+      "canonical_field": "business_address.city",
+      "json_path": "Información General[0].Ubicación de la Empresa",
+      "extraction_type": "first_element_field",
+      "reasoning": "Ubicación de la Empresa contains the city and department (e.g. SAN PEDRO SULA, CORTES)"
+    },
+    {
+      "canonical_field": "postal_address.street",
+      "json_path": "Información General[0].Domicilio",
+      "extraction_type": "first_element_field",
+      "reasoning": "Domicilio contains the full legal domicile/postal address description, which may differ from business address"
+    },
+    {
+      "canonical_field": "share_capital.amount",
+      "json_path": [
+        "Capital[0].Capital Pagado",
+        "Capital[0].Capital Suscrito",
+        "Capital[0].Capital MÃanimo"
+      ],
+      "extraction_type": "fallback_chain",
+      "reasoning": "Capital Pagado (paid capital) is most specific, followed by Capital Suscrito (subscribed), then Capital Mínimo. Different records have different fields populated."
+    },
+    {
+      "canonical_field": "share_capital.currency",
+      "json_path": "HNL",
+      "extraction_type": "hardcode",
+      "reasoning": "Honduras currency is Honduran Lempira (HNL). Capital amounts in records are in local currency."
+    },
+    {
+      "canonical_field": "registration_date",
+      "json_path": "Información General[0].Vigencia",
+      "extraction_type": "first_element_field",
+      "reasoning": "Vigencia contains the date the company registration came into effect/force"
+    },
+    {
+      "canonical_field": "description",
+      "json_path": [
+        "Información General[0].Finalidad",
+        "Información General[0].Objeto Social de la Empresa"
+      ],
+      "extraction_type": "fallback_chain",
+      "reasoning": "Finalidad contains the detailed business purpose/activities. Objeto Social de la Empresa is an alternative field for business object. Finalidad is more consistently populated."
+    },
+    {
+      "canonical_field": "share_capital.fully_paid",
+      "json_path": "Capital[0].Capital Pagado",
+      "extraction_type": "exists_check",
+      "reasoning": "The 'Capital Pagado' (Paid Capital) field exists in the Capital array. When this field has a non-null, non-empty value, it indicates that capital has been paid. This can be used to determine if share capital is fully paid by comparing it with 'Capital Suscrito' (Subscribed Capital). If Capital Pagado exists and equals or exceeds Capital Suscrito, the capital is fully paid."
+    },
+    {
+      "canonical_field": "postal_address.city",
+      "json_path": "Información General[0].Ubicación de la Empresa",
+      "extraction_type": "direct",
+      "reasoning": "The postal address street is already mapped to 'Domicilio', but there's no explicit postal city field. However, 'Ubicación de la Empresa' (Location of the Company) contains city information (e.g., 'SAN PEDRO SULA, CORTES'). Since postal_address.street uses 'Domicilio' which contains longer address descriptions, the city portion can reasonably be extracted from 'Ubicación de la Empresa' as it represents the general location/city where mail would be delivered."
+    }
+  ],
+  "metrics": {
+    "total_required": 14,
+    "total_expected": 23,
+    "field_coverage": 100.0,
+    "path_accuracy": 100.0,
+    "full_accuracy": 100.0,
+    "optional_skips": 6,
+    "missing_fields": [],
+    "extra_fields": []
+  },
+  "details": [
+    {
+      "canonical_field": "company_name.legal_name",
+      "expected_path": [
+        "Información General[0].Razón Social",
+        "Información General[0].Denominación Social"
+      ],
+      "expected_type": [
+        "fallback_chain",
+        "first_element_field"
+      ],
+      "optional": false,
+      "llm_path": [
+        "Información General[0].Denominación Social",
+        "Información General[0].Razón Social"
+      ],
+      "llm_type": "fallback_chain",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "company_name.trade_name",
+      "expected_path": "Información General[0].Nombre Comercial",
+      "expected_type": "first_element_field",
+      "optional": false,
+      "llm_path": "Información General[0].Nombre Comercial",
+      "llm_type": "first_element_field",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "company_name.short_name",
+      "expected_path": "Información General[0].Siglas",
+      "expected_type": "first_element_field",
+      "optional": false,
+      "llm_path": "Información General[0].Siglas",
+      "llm_type": "first_element_field",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "company_name.local_language_name",
+      "expected_path": null,
+      "expected_type": null,
+      "optional": true,
+      "status": "OPTIONAL_SKIP",
+      "path_correct": null,
+      "type_correct": null
+    },
+    {
+      "canonical_field": "unique_identifier.registration_number",
+      "expected_path": "FileNumber",
+      "expected_type": "direct",
+      "optional": false,
+      "llm_path": "FileNumber",
+      "llm_type": "direct",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "unique_identifier.prior_registration_number",
+      "expected_path": null,
+      "expected_type": null,
+      "optional": true,
+      "status": "OPTIONAL_SKIP",
+      "path_correct": null,
+      "type_correct": null
+    },
+    {
+      "canonical_field": "parent_company.registration_number",
+      "expected_path": null,
+      "expected_type": null,
+      "optional": true,
+      "status": "OPTIONAL_SKIP",
+      "path_correct": null,
+      "type_correct": null
+    },
+    {
+      "canonical_field": "parent_company.company_name",
+      "expected_path": null,
+      "expected_type": null,
+      "optional": true,
+      "status": "OPTIONAL_SKIP",
+      "path_correct": null,
+      "type_correct": null
+    },
+    {
+      "canonical_field": "company_type",
+      "expected_path": "Información General[0].Tipo de Comerciante",
+      "expected_type": "first_element_field",
+      "optional": false,
+      "llm_path": "Información General[0].Tipo de Comerciante",
+      "llm_type": "first_element_field",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "status",
+      "expected_path": "Información General[0].Estado",
+      "expected_type": "first_element_field",
+      "optional": false,
+      "llm_path": "Información General[0].Estado",
+      "llm_type": "first_element_field",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "country.registration",
+      "expected_path": "HN",
+      "expected_type": "hardcode",
+      "optional": false,
+      "llm_path": "HN",
+      "llm_type": "hardcode",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "country.business_address",
+      "expected_path": "HN",
+      "expected_type": "hardcode",
+      "optional": false,
+      "llm_path": "HN",
+      "llm_type": "hardcode",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "country.postal_address",
+      "expected_path": "HN",
+      "expected_type": "hardcode",
+      "optional": true,
+      "status": "OPTIONAL_SKIP",
+      "path_correct": null,
+      "type_correct": null
+    },
+    {
+      "canonical_field": "business_address.street",
+      "expected_path": "Información General[0].Dirección de la Empresa",
+      "expected_type": "first_element_field",
+      "optional": false,
+      "llm_path": "Información General[0].Dirección de la Empresa",
+      "llm_type": "first_element_field",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "business_address.city",
+      "expected_path": "Información General[0].Ubicación de la Empresa",
+      "expected_type": "first_element_field",
+      "optional": false,
+      "llm_path": "Información General[0].Ubicación de la Empresa",
+      "llm_type": "first_element_field",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "postal_address.street",
+      "expected_path": "Información General[0].Domicilio",
+      "expected_type": "first_element_field",
+      "optional": true,
+      "llm_path": "Información General[0].Domicilio",
+      "llm_type": "first_element_field",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "postal_address.city",
+      "expected_path": "Información General[0].Domicilio",
+      "expected_type": "first_element_field",
+      "optional": true,
+      "llm_path": "Información General[0].Ubicación de la Empresa",
+      "llm_type": "direct",
+      "path_correct": false,
+      "type_correct": false,
+      "status": "WRONG"
+    },
+    {
+      "canonical_field": "share_capital.amount",
+      "expected_path": [
+        "Capital[0].Capital Pagado",
+        "Capital[0].Capital Suscrito",
+        "Capital[0].Capital Maximus",
+        "Capital[0].Capital Mínimo"
+      ],
+      "expected_type": [
+        "fallback_chain",
+        "first_element_field"
+      ],
+      "optional": false,
+      "llm_path": [
+        "Capital[0].Capital Pagado",
+        "Capital[0].Capital Suscrito",
+        "Capital[0].Capital MÃanimo"
+      ],
+      "llm_type": "fallback_chain",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "share_capital.currency",
+      "expected_path": "HNL",
+      "expected_type": "hardcode",
+      "optional": false,
+      "llm_path": "HNL",
+      "llm_type": "hardcode",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "share_capital.fully_paid",
+      "expected_path": null,
+      "expected_type": null,
+      "optional": true,
+      "llm_path": "Capital[0].Capital Pagado",
+      "llm_type": "exists_check",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "num_employees",
+      "expected_path": null,
+      "expected_type": null,
+      "optional": true,
+      "status": "OPTIONAL_SKIP",
+      "path_correct": null,
+      "type_correct": null
+    },
+    {
+      "canonical_field": "registration_date",
+      "expected_path": [
+        "Información General[0].Vigencia",
+        "Resúmenes[0].Fecha Inscripción"
+      ],
+      "expected_type": "first_element_field",
+      "optional": false,
+      "llm_path": "Información General[0].Vigencia",
+      "llm_type": "first_element_field",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    },
+    {
+      "canonical_field": "description",
+      "expected_path": [
+        "Información General[0].Finalidad",
+        "Información General[0].Objeto Social de la Empresa"
+      ],
+      "expected_type": [
+        "first_element_field",
+        "fallback_chain"
+      ],
+      "optional": false,
+      "llm_path": [
+        "Información General[0].Finalidad",
+        "Información General[0].Objeto Social de la Empresa"
+      ],
+      "llm_type": "fallback_chain",
+      "path_correct": true,
+      "type_correct": true,
+      "status": "CORRECT"
+    }
+  ]
+}

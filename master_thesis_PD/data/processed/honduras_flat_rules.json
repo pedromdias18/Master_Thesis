@@ -1,0 +1,104 @@
+[
+  {
+    "canonical_field": "company_name.legal_name",
+    "json_path": [
+      "Información General[0].Denominación Social",
+      "Información General[0].Razón Social"
+    ],
+    "extraction_type": "fallback_chain",
+    "reasoning": "The legal name is either Denominación Social (for SA companies) or Razón Social (for SRL companies). Try Denominación Social first as it's more common."
+  },
+  {
+    "canonical_field": "company_name.trade_name",
+    "json_path": "Información General[0].Nombre Comercial",
+    "extraction_type": "first_element_field",
+    "reasoning": "Nombre Comercial is the commercial/trade name used in business operations."
+  },
+  {
+    "canonical_field": "company_name.short_name",
+    "json_path": "Información General[0].Siglas",
+    "extraction_type": "first_element_field",
+    "reasoning": "Siglas contains the abbreviated name or acronym of the company."
+  },
+  {
+    "canonical_field": "unique_identifier.registration_number",
+    "json_path": "FileNumber",
+    "extraction_type": "direct",
+    "reasoning": "FileNumber is the unique registration identifier assigned by the Honduras registry."
+  },
+  {
+    "canonical_field": "company_type",
+    "json_path": "Información General[0].Tipo de Comerciante",
+    "extraction_type": "first_element_field",
+    "reasoning": "Tipo de Comerciante contains the human-readable legal form description like SOCIEDAD ANONIMA or SOCIEDAD DE RESPONSABILIDAD LIMITADA SRL."
+  },
+  {
+    "canonical_field": "status",
+    "json_path": "Información General[0].Estado",
+    "extraction_type": "first_element_field",
+    "reasoning": "Estado field contains the company status, with values like ACTIVO indicating the current lifecycle state."
+  },
+  {
+    "canonical_field": "country.registration",
+    "json_path": "HN",
+    "extraction_type": "hardcode",
+    "reasoning": "This is Honduras company registry data, so the registration country is always Honduras (HN)."
+  },
+  {
+    "canonical_field": "business_address.street",
+    "json_path": "Información General[0].Dirección de la Empresa",
+    "extraction_type": "first_element_field",
+    "reasoning": "Dirección de la Empresa contains the street-level business address of the company."
+  },
+  {
+    "canonical_field": "business_address.city",
+    "json_path": "Información General[0].Ubicación de la Empresa",
+    "extraction_type": "first_element_field",
+    "reasoning": "Ubicación de la Empresa contains the city/location of the company like SAN PEDRO SULA, CORTES."
+  },
+  {
+    "canonical_field": "postal_address.street",
+    "json_path": "Información General[0].Domicilio",
+    "extraction_type": "first_element_field",
+    "reasoning": "Domicilio contains the full postal/mailing address description including city and potential branch locations."
+  },
+  {
+    "canonical_field": "share_capital.amount",
+    "json_path": "Capital[0].Capital Pagado",
+    "extraction_type": "first_element_field",
+    "reasoning": "Capital Pagado represents the paid-up capital amount, which is the actual share capital contributed."
+  },
+  {
+    "canonical_field": "share_capital.currency",
+    "json_path": "HNL",
+    "extraction_type": "hardcode",
+    "reasoning": "Honduras uses Honduran Lempira (HNL) as its currency for company capital."
+  },
+  {
+    "canonical_field": "registration_date",
+    "json_path": "Información General[0].Vigencia",
+    "extraction_type": "first_element_field",
+    "reasoning": "Vigencia contains the registration/validity date of the company in DD/MM/YYYY format."
+  },
+  {
+    "canonical_field": "description",
+    "json_path": [
+      "Información General[0].Finalidad",
+      "Información General[0].Objeto Social de la Empresa"
+    ],
+    "extraction_type": "fallback_chain",
+    "reasoning": "Finalidad contains the company purpose/activities description. Fall back to Objeto Social de la Empresa if Finalidad is empty."
+  },
+  {
+    "canonical_field": "country.business_address",
+    "json_path": "hardcode: HN",
+    "extraction_type": "hardcode",
+    "reasoning": "The business address is in Honduras as indicated by locations like 'SAN PEDRO SULA, CORTES' and 'TEGUCIGALPA, DEPARTAMENTO DE FRANCISCO MORAZAN'. Since this is the Honduras company registry, all business addresses are in Honduras."
+  },
+  {
+    "canonical_field": "country.postal_address",
+    "json_path": "hardcode: HN",
+    "extraction_type": "hardcode",
+    "reasoning": "The postal address (Domicilio) references locations within Honduras such as 'SAN PEDRO SULA, DEPARTAMENTO DE CORTES' and mentions 'DENTRO Y FUERA DEL PAIS' indicating the primary domicile is in Honduras. Since this is the Honduras registry, postal addresses are in Honduras."
+  }
+]
